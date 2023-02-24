@@ -1,8 +1,0 @@
-{
-  "base": {
-    "style": {
-      "backgroundColor": "var(--qual-5)",
-      "textAlign": "center"
-    }
-  }
-}

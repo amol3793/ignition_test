@@ -1,8 +1,0 @@
-{
-  "base": {
-    "style": {
-      "color": "var(--neutral-70)",
-      "fontSize": "14px"
-    }
-  }
-}

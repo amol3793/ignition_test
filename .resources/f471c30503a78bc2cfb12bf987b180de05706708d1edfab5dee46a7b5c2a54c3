@@ -1,9 +1,0 @@
-{
-  "base": {
-    "style": {
-      "backgroundColor": "#DDDDDD",
-      "overflowX": "hidden",
-      "overflowY": "scroll"
-    }
-  }
-}
