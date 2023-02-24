@@ -1,0 +1,55 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "basis": "400px"
+        },
+        "propConfig": {
+          "props.data[0].country": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]Total Spain/Sites/La Asomada/Active_Power"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "data": [
+            {
+              "test1": {
+                "align": "center",
+                "editable": true,
+                "justify": "left",
+                "style": {
+                  "backgroundColor": "#F7901D",
+                  "classes": "some-class"
+                },
+                "value": "Folsom"
+              },
+              "test2": 3.830634593963623,
+              "test3": 77271
+            }
+          ]
+        },
+        "type": "ia.display.table"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

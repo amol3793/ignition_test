@@ -1,0 +1,1568 @@
+{
+  "custom": {},
+  "params": {},
+  "permissions": {
+    "securityLevels": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "name": "autogrid"
+              }
+            ],
+            "name": "Roles"
+          }
+        ],
+        "name": "Authenticated"
+      }
+    ],
+    "type": "AllOf"
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "height": 56,
+          "width": 800
+        },
+        "props": {
+          "params": {
+            "icon": "settings",
+            "text": "Setup"
+          },
+          "path": "Page/Embedded/Title"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "component": {
+            "onEditCellCommit": {
+              "config": {
+                "script": "\tcolName \u003d event.column\n\trow \u003d event.row\n\tdevName \u003d self.props.data.getValueAt(row, \"Name\")\n\t\n\tnewVal\u003devent[\"value\"]\n\t\t\n\tif colName \u003d\u003d \"Enabled\":\n\t\tsystem.device.setDeviceEnabled(devName, newVal)\n\telif colName \u003d\u003d \"PD Alerting Enabled\":\n\t\talerts\u003dsystem.tag.readBlocking([autogrid.monitoring.DEVICE_ALERTS_ENABLED])[0].value\n\t\tif newVal:\n\t\t\talerts.append(devName)\n\t\telse:\n\t\t\talerts.remove(devName)\n\t\t\tautogrid.monitoring.resolve_pd_event(\"device\", devName, \"SCADA Device \" + devName + \" alerting is disabled\")\n\t\t\tactive_alerts\u003dsystem.tag.readBlocking([autogrid.monitoring.DEVICE_ALERTING_PATH])[0].value\n\t\t\tif devName in active_alerts:\n\t\t\t\tactive_alerts.remove(devName)\n\t\t\tsystem.tag.writeBlocking([autogrid.monitoring.DEVICE_ALERTING_PATH], [active_alerts])\n\t\t\t\t\t\n\t\tsystem.tag.writeBlocking([autogrid.monitoring.DEVICE_ALERTS_ENABLED], [alerts])\n\t\n\tsystem.dataset.updateRow(self.props.data, row, { colName: event[\"value\"] } )"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "height": 251,
+          "width": 420,
+          "x": 16,
+          "y": 98
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "expression": "{[default]AutoGrid/Monitoring/AlertEnabledDevices}"
+              },
+              "transforms": [
+                {
+                  "code": "\tdevices\u003dsystem.device.listDevices()\n\talert_conf \u003d value\n\t\t\n\tcolCount \u003d devices.getColumnCount()\n\tcolumnName \u003d \"PD Alerting Enabled\"\n\tcolumnData \u003d []\n\tfor i in range(devices.getRowCount()):\n\t\tfound\u003dFalse\n\t\tfor al in alert_conf:\n\t\t\t if al \u003d\u003d devices.getValueAt(i, 0):\n\t\t\t \tfound\u003dTrue\n\t\tcolumnData.append(found)\n\t  \n\treturn system.dataset.addColumn(devices, colCount, columnData, columnName, bool)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "cells": {
+            "allowEditOn": "single-click"
+          },
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "Name",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "Enabled",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "State",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "Driver",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": false,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "PD Alerting Enabled",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "selection": {
+            "enableRowSelection": false
+          },
+          "style": {
+            "classes": "Base/Table"
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 300,
+          "x": 15,
+          "y": 56
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Device Connections"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "BekE4dl0",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewPath": "Popups/SyncRTCC"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 36,
+          "width": 128,
+          "x": 450,
+          "y": 521
+        },
+        "props": {
+          "text": "Sync Devices From Flex"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "newTab": true,
+                "url": "{session.props.gateway.address}"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 36,
+          "width": 154,
+          "x": 589,
+          "y": 521
+        },
+        "props": {
+          "text": "Manage (Gateway Setup)"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 300,
+          "x": 450,
+          "y": 586
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "AGBase Project"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tautogrid.tags.init_tags()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "height": 36,
+          "width": 88,
+          "x": 450,
+          "y": 621
+        },
+        "props": {
+          "enabled": false,
+          "text": "Sync UDTs"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 335.36842105263156,
+          "x": 445,
+          "y": 56
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Resource Setup"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onEditCellCommit": {
+              "config": {
+                "script": "\tcol \u003d event.column\n\trow \u003d event.row\n\t\n\tpath\u003d\"[default]AutoGrid/HMISites\"\n\tdata\u003dsystem.tag.readBlocking([path])[0].value\n\tdata\u003dsystem.dataset.updateRow(data,row,{col :event.value})\n\tsystem.tag.writeBlocking([path], [data])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table_0"
+        },
+        "position": {
+          "height": 251,
+          "width": 742,
+          "x": 445,
+          "y": 98
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]AutoGrid/HMISites"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "name",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Resource Name"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 50
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "path",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": false,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "hmi",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "HMI"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 75
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "control",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Control UI"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "tenant",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Tenant"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "style": {
+            "classes": "Base/Table"
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tautogrid.sync.add_kafka_mappings(self.getSibling(\"Table_0\").props.selection.data[0].path)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_2"
+        },
+        "position": {
+          "height": 36,
+          "width": 88,
+          "x": 445,
+          "y": 361
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{../Table_0.props.selection.selectedRow} !\u003d null"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Enable Kafka Sync"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Checkbox"
+        },
+        "position": {
+          "height": 36,
+          "width": 267,
+          "x": 451,
+          "y": 682
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]AutoGrid/ENABLE_MQTT_AUTOCREATE"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Base/Black"
+          },
+          "text": "Auto-provision MQTT Devices"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "6dUCU7qt",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Add Resource",
+                "type": "open",
+                "viewPath": "Popups/AddResource"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_3"
+        },
+        "position": {
+          "height": 36,
+          "width": 88,
+          "x": 545,
+          "y": 361
+        },
+        "props": {
+          "text": "Add Resource"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "height": 36,
+          "width": 256,
+          "x": 607,
+          "y": 407.105
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "expression": "\"\""
+              },
+              "transforms": [
+                {
+                  "code": "\toptions\u003d[]\n\tfor tenant in system.tag.browse(path\u003d\"[default]AutoGrid/TenantCredentials\").getResults():\n\t\tpath\u003dtenant[\u0027name\u0027]\n\t\toptions.append({\u0027value\u0027: path, \u0027label\u0027: path}) \n\t\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 177,
+          "x": 448,
+          "y": 409
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          },
+          "text": "Edit Tenant Settings"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "DLWK0Xf4",
+                "modal": true,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewParams": {
+                  "path": "{/root/Dropdown.props.value}"
+                },
+                "viewPath": "Popups/TenantSettings"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_4"
+        },
+        "position": {
+          "height": 36,
+          "width": 50,
+          "x": 870,
+          "y": 407.063
+        },
+        "props": {
+          "text": "Edit"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 32,
+          "width": 142,
+          "x": 448,
+          "y": 454.094
+        },
+        "props": {
+          "text": "PagerDuty Integration Key"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "height": 32,
+          "width": 347,
+          "x": 607,
+          "y": 455
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]AutoGrid/PagerDutyServiceKey"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "component": {
+            "onEditCellCommit": {
+              "config": {
+                "script": "\tcolName \u003d event.column\n\trow \u003d event.row\n\tdevName \u003d self.props.data.getValueAt(row, \"Name\")\n\t\n\tnewVal\u003devent[\"value\"]\n\t\t\n\tif colName \u003d\u003d \"Enabled\":\n\t\tsystem.opc.setServerEnabled(devName, newVal)\n\telif colName \u003d\u003d \"PD Alerting Enabled\":\n\t\talerts\u003dsystem.tag.readBlocking([autogrid.monitoring.OPC_ALERTS_ENABLED])[0].value\n\t\tif newVal:\n\t\t\tif not devName in alerts:\n\t\t\t\talerts.append(devName)\n\t\telse:\n\t\t\talerts.remove(devName)\n\t\t\tautogrid.monitoring.resolve_pd_event(\"opcserver\", devName, \"OPC Server \" + devName + \" monitoring disabled.\")\n\t\t\tactive_alerts\u003dsystem.tag.readBlocking([autogrid.monitoring.OPC_ALERTING_PATH])[0].value\n\t\t\tif devName in active_alerts:\n\t\t\t\tactive_alerts.remove(devName)\n\t\t\tsystem.tag.writeBlocking([autogrid.monitoring.OPC_ALERTING_PATH], [active_alerts])\n\t\t\t\t\t\n\t\tsystem.tag.writeBlocking([autogrid.monitoring.OPC_ALERTS_ENABLED], [alerts])\n\t\n\tsystem.dataset.updateRow(self.props.data, row, { colName: event[\"value\"] } )"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table_1"
+        },
+        "position": {
+          "height": 251,
+          "width": 420,
+          "x": 16,
+          "y": 408
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "expression": "{[default]AutoGrid/Monitoring/AlertEnabledOPCConnections}"
+              },
+              "transforms": [
+                {
+                  "code": "\tdevices \u003d system.opc.getServers(includeDisabled\u003dTrue)\n\talert_conf \u003d value\n\t\t\n\theader \u003d [ \"Name\", \"Enabled\", \"Status\", \"PD Alerting Enabled\" ]\n\tdata \u003d []\n\tfor device in devices:\n\t\tfound\u003dFalse\n\t\tfor al in alert_conf:\n\t\t\t if al \u003d\u003d device:\n\t\t\t \tfound\u003dTrue\n\t\tdata.append([device, system.opc.isServerEnabled(device), system.opc.getServerState(device), found])\n\t\n\t  \n\treturn system.dataset.toDataSet(header, data)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "cells": {
+            "allowEditOn": "single-click"
+          },
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "Name",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "Enabled",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "Status",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "PD Alerting Enabled",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "selection": {
+            "enableRowSelection": false
+          },
+          "style": {
+            "classes": "Base/Table"
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 300,
+          "x": 15,
+          "y": 366
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "OPC Connections"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "2MY7cIfo",
+                "modal": true,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewParams": {
+                  "path": "{/root/Dropdown.props.value}"
+                },
+                "viewPath": "Popups/AddTenant"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_5"
+        },
+        "position": {
+          "height": 36,
+          "width": 50,
+          "x": 930,
+          "y": 407.063
+        },
+        "props": {
+          "text": "Add"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 32,
+          "width": 266,
+          "x": 815,
+          "y": 19
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"AGBase Version \"+{[default]AutoGrid/AGBaseVersion}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

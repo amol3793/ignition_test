@@ -1,0 +1,67 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EquipmentSchedule"
+        },
+        "position": {
+          "height": 500,
+          "width": 750,
+          "x": 25,
+          "y": 19
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]test/Assets"
+              },
+              "type": "tag"
+            }
+          },
+          "props.scheduledEvents": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]test/eventSchedule"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "dateRange": {
+            "endDate": {
+              "$": [
+                "ts",
+                0,
+                1660658039108
+              ],
+              "$ts": 1660608000000
+            },
+            "startDate": {
+              "$": [
+                "ts",
+                0,
+                1660658036750
+              ],
+              "$ts": 1660608000000
+            }
+          }
+        },
+        "type": "ia.display.equipmentschedule"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,1802 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1296
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Button_6"
+        },
+        "position": {
+          "height": 151,
+          "width": 221,
+          "x": 402.503,
+          "y": 12
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#00FFFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Button_3"
+        },
+        "position": {
+          "height": 151,
+          "width": 368,
+          "x": 9.55,
+          "y": 12
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#00FFFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "usesMetricUnitsTextField"
+        },
+        "position": {
+          "height": 33,
+          "width": 43,
+          "x": 115.950625,
+          "y": 351.04725
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_usesMetricUnits\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tif (self.props.selected):\n\t\tself.getSibling(\"usesMetricUnitsTextField\").props.text \u003d 1\n\telse:\n\t\tself.getSibling(\"usesMetricUnitsTextField\").props.text \u003d 0\n\t\t\t\t\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "usesMetricUnitsCheckbox"
+        },
+        "position": {
+          "height": 20,
+          "width": 165,
+          "x": 55.012924999999996,
+          "y": 364.54725
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../usesMetricUnitsTextField.props.text"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": false
+                    },
+                    {
+                      "input": 1,
+                      "output": true
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Uses Metric Units",
+          "textPosition": "left"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Label_22"
+        },
+        "position": {
+          "height": 38,
+          "width": 94,
+          "x": 25.090000000000003,
+          "y": 28
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Asset Tenant"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tif not(self.props.text.startswith(\"[Default]\")):\n\t\tself.props.text \u003d \u0027[Default]\u0027 + self.props.text \t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "assetTenantTextField",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 20,
+          "width": 195,
+          "x": 25.003999999999998,
+          "y": 53
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({parent.custom.AssetTenant})\u003d0"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{parent.custom.AssetTenant}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_23"
+        },
+        "position": {
+          "height": 38,
+          "width": 94,
+          "x": 25.090000000000003,
+          "y": 66
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Asset Site"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "assetSiteTextField",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 20,
+          "width": 195,
+          "x": 25.003999999999998,
+          "y": 91
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({parent.custom.AssetSite})\u003d0"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "substring({parent.custom.AssetSite},lastIndexOf({parent.custom.AssetSite},\u0027/\u0027)+1,len({parent.custom.AssetSite}))"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_24"
+        },
+        "position": {
+          "height": 38,
+          "width": 94,
+          "x": 25.090000000000003,
+          "y": 104
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Asset ID"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onCompositionUpdate": {
+              "config": {
+                "script": "\tassetIDTextField \u003d self\n\tduplicateAssetIDTextField \u003d self.getSibling(\"duplicateAssetIDTextField\")\n\tduplicateAssetIDTextField.props.text \u003d assetIDTextField.props.text.split(\u0027-\u0027)[0] + \u0027-\u0027"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "assetIDTextField",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 20,
+          "width": 195,
+          "x": 25.003999999999998,
+          "y": 129
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({parent.custom.AssetID})\u003d0"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "substring({parent.custom.AssetID},lastIndexOf({parent.custom.AssetID},\u0027/\u0027)+1,len({parent.custom.AssetID}))"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tUDTInstanceVersion \u003d \u0027[default]_types_/AutoGrid/Renewables_DR_ParentUDTs/v01\u0027\n\t\n\tif len(self.getSibling(\u0027assetIDTextField\u0027).props.text) \u003e 0:\n\t\trootPath \u003d self.getSibling(\u0027assetTenantTextField\u0027).props.text +\u0027/\u0027\n\t\tsitePath \u003d self.getSibling(\u0027assetSiteTextField\u0027).props.text\n\t\tassetID \u003d self.getSibling(\u0027assetIDTextField\u0027).props.text\n\t\tUDTToCreate \u003d {\n\t\t            \t\"name\": assetID,         \n\t\t            \t\"typeId\" : UDTInstanceVersion,\n\t\t            \t\"tagType\" : \u0027UdtInstance\u0027\n\t\t              }\n\t\tsystem.tag.configure(rootPath + sitePath,[UDTToCreate],\u0027o\u0027)\n\t\tself.parent.custom.AssetID \u003d rootPath + \u0027/\u0027 + sitePath+ \u0027/\u0027 + assetID \t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "createAssetButton",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 21,
+          "width": 136,
+          "x": 231,
+          "y": 128.5
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetID})\u003d0) || {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003d0 "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Create Asset"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif len(self.getSibling(\u0027assetSiteTextField\u0027).props.text) \u003e 0:\n\t\trootPath \u003d self.getSibling(\u0027assetTenantTextField\u0027).props.text\n\t\tnewSite \u003d self.getSibling(\u0027assetSiteTextField\u0027).props.text\n\t\tfolderToCreate \u003d {\u0027tagType\u0027 : \u0027Folder\u0027,\n\t\t\t\t\t\t  \u0027name\u0027 : newSite\n\t\t\t\t\t\t  }\n\t\tsystem.tag.configure(rootPath,[folderToCreate],\u0027o\u0027)\n\t\tself.parent.custom.AssetSite \u003d rootPath + \u0027/\u0027 + newSite"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "createSiteButton",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 21,
+          "width": 136,
+          "x": 231,
+          "y": 90.5
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetID})\u003d0) || {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003d0 \u0026\u0026 len({parent.custom.AssetID})\u003d0 "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Create Site"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tnewTenant \u003d self.getSibling(\u0027assetTenantTextField\u0027).props.text \n\tif len(newTenant) \u003e 0:\n\t\tfolderToCreate \u003d {\u0027tagType\u0027 : \u0027Folder\u0027,\n\t\t\t\t\t\t  \u0027name\u0027 : newTenant.replace(\u0027[Default]\u0027,\u0027\u0027)\n\t\t\t\t\t\t  }\n\t\tsystem.tag.configure(\u0027[Default]\u0027,[folderToCreate],\u0027o\u0027)\n\t\tself.parent.custom.AssetTenant \u003d newTenant"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "createTenantButton",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 21,
+          "width": 136,
+          "x": 231,
+          "y": 52
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetID})\u003d0) || {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({parent.custom.AssetTenant})\u003d0 \u0026\u0026 len({parent.custom.AssetSite})\u003d0 \u0026\u0026 len({parent.custom.AssetID})\u003d0 "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Create Tenant"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_25"
+        },
+        "position": {
+          "height": 38,
+          "width": 244,
+          "x": 71.5969,
+          "y": 6
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "NEW Tenant, Site or Asset"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tlogger \u003d system.util.getLogger(\u0027DUPLICATE ASSET\u0027)\n\tnewAssetID \u003d self.getSibling(\u0027duplicateAssetIDTextField\u0027).props.text\n\torigAssetID \u003d self.getSibling(\u0027assetIDTextField\u0027).props.text\n\tUDTInstanceVersion \u003d \u0027[default]_types_/AutoGrid/Renewables_DR_ParentUDTs/v01\u0027\n\n\tif (len(newAssetID) \u003e 0) and (origAssetID !\u003d newAssetID):\n\t\trootPath \u003d self.getSibling(\u0027assetTenantTextField\u0027).props.text +\u0027/\u0027\n\t\tsitePath \u003d self.getSibling(\u0027assetSiteTextField\u0027).props.text\n\t\tif  not system.tag.exists(rootPath + \u0027/\u0027 + sitePath+ \u0027/\u0027 + newAssetID):\n\t\t\tif system.tag.exists(rootPath + \u0027/\u0027 + sitePath+ \u0027/\u0027 + origAssetID):\n\t\t\t\torigConfig \u003d system.tag.getConfiguration(rootPath + \u0027/\u0027 + sitePath+ \u0027/\u0027 + origAssetID, True)\n\t\t\t\torigConfig[0][\u0027name\u0027] \u003d newAssetID\n\t\t\t\tsystem.tag.configure(rootPath + sitePath,origConfig,\u0027o\u0027)\n\t\t\t\tif (True):\n\t\t\t\t\tnewAssetIDParts \u003d newAssetID.split(\u0027-\u0027)\n\t\t\t\t\tif len(newAssetIDParts) \u003e 1:\n\t\t\t\t\t\tnewIndex \u003d int(newAssetIDParts[1]) + 1\n\t\t\t\t\t\tnewIndexStr \u003d \u0027\u0027\n\t\t\t\t\t\tif newIndex \u003e 9:\n\t\t\t\t\t\t\tnewIndexStr \u003d str(newIndex)\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tnewIndexStr \u003d \u00270\u0027 + str(newIndex)\n\t\t\t\t\t\tself.getSibling(\u0027duplicateAssetIDTextField\u0027).props.text \u003d newAssetIDParts[0] + \u0027-\u0027 + newIndexStr\n\t\t\t\t\t\tPayload \u003d { \u0027newAssetID\u0027: newAssetID,\t\t\t\t\t\t\t\t\t\t\t\\\n\t\t\t\t\t\t\t\t\t\u0027newAssetFullPath\u0027: rootPath + \u0027/\u0027 + sitePath+ \u0027/\u0027 + newAssetID\t\t\\\n\t\t\t\t\t\t\t\t  }\n\t\t\t\t\t\tsystem.perspective.sendMessage(messageType \u003d \u0027assetDuplicated\u0027, payload \u003d Payload, scope \u003d\u0027page\u0027)\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "duplicateAssetButton"
+        },
+        "position": {
+          "height": 21,
+          "width": 138,
+          "x": 443.547,
+          "y": 109.5
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "((len({parent.custom.AssetTenant})!\u003d0) \u0026\u0026 (len({parent.custom.AssetSite})!\u003d0) \u0026\u0026 (len({parent.custom.AssetID})!\u003d0) \u0026\u0026 (len({../duplicateAssetIDTextField.props.text})!\u003d0)) || {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Duplicate"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_26"
+        },
+        "position": {
+          "height": 38,
+          "width": 216,
+          "x": 402.55,
+          "y": 6
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Duplicate Current Asset"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_27"
+        },
+        "position": {
+          "height": 38,
+          "width": 121,
+          "x": 415.963,
+          "y": 49.5
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "New Asset ID"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "duplicateAssetIDTextField"
+        },
+        "position": {
+          "height": 20,
+          "width": 195,
+          "x": 415.926,
+          "y": 77.5
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "((len({parent.custom.AssetTenant})!\u003d0) \u0026\u0026 (len({parent.custom.AssetSite})!\u003d0) \u0026\u0026 (len({parent.custom.AssetID})!\u003d0)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Button_7"
+        },
+        "position": {
+          "height": 204,
+          "width": 277,
+          "x": 9.54747,
+          "y": 573.00525
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FF8C00"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_28"
+        },
+        "position": {
+          "height": 38,
+          "width": 215.99999999999994,
+          "x": 34.8438,
+          "y": 580.30125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Device Communication Parameters"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onMouseDown": {
+              "config": {
+                "script": "\temptyList \u003d []\n\tincludeDisabled \u003d True\n\topcServerDropdown \u003d self.getSibling(\u0027opcServerNameDropdown\u0027)\n\topcServerDeviceDropdown \u003d self\n\n\topcServerDevices \u003d system.device.listDevices()\n\topcServerDevices \u003d system.dataset.toPyDataSet(opcServerDevices)\n\topcServerDeviceDropdown.props.options \u003d emptyList\n\tfor row in opcServerDevices:\n\t\topcServerDeviceDropdown.props.options.append({\u0027value\u0027: \u0027s\u003d[\u0027 + row[\u0027Name\u0027] + \u0027]\u0027,\u0027label\u0027: row[\u0027Name\u0027]})\n\n\t\t \t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "opcServerDeviceDropdown"
+        },
+        "position": {
+          "height": 21,
+          "width": 240,
+          "x": 25.3948,
+          "y": 692.66625
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} \u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.opc_serverTopic\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "dropdownOptionStyle": {
+            "classes": "UDTConfigureTextFieldEntry"
+          },
+          "style": {
+            "backgroundColor": "#FFF9B2"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Label_21"
+        },
+        "position": {
+          "height": 20,
+          "width": 215,
+          "x": 25.3986,
+          "y": 672.03225
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Device"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_20"
+        },
+        "position": {
+          "height": 20,
+          "width": 215,
+          "x": 25.3985,
+          "y": 718.59425
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Device Protocol ID"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tif (self.props.text[0] !\u003d \u0027.\u0027):\n\t\tself.props.text \u003d \u0027.\u0027 + self.props.text \t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "setpointDispatchAddressTextField_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 240,
+          "x": 26.0447,
+          "y": 738.48325
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} \u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.opc_serverNode\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "enabled": null,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Button_8"
+        },
+        "position": {
+          "height": 472,
+          "width": 957,
+          "x": 304.89375,
+          "y": 305
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FF8C00"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_30"
+        },
+        "position": {
+          "height": 40,
+          "width": 451,
+          "x": 557.411625,
+          "y": 305.27
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "OPC Server Communication Parameters"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_31"
+        },
+        "position": {
+          "height": 20,
+          "width": 212.99999999999994,
+          "x": 594.59675,
+          "y": 699.756
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "OPC Path"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tif (self.props.text[0] !\u003d \u0027.\u0027):\n\t\tself.props.text \u003d \u0027.\u0027 + self.props.text \t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "setpointDispatchAddressTextField_10"
+        },
+        "position": {
+          "height": 20,
+          "width": 240,
+          "x": 323.89675,
+          "y": 724.63
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.opc_serverNode\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "enabled": null,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_32"
+        },
+        "position": {
+          "height": 20,
+          "width": 224.85000000000002,
+          "x": 331.50675,
+          "y": 705.256
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "OPC Topic"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Button_9"
+        },
+        "position": {
+          "height": 336.99999999999994,
+          "width": 921,
+          "x": 323.34375,
+          "y": 351.06
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FFF9B2"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onItemClicked": {
+              "config": {
+                "script": "\topcServerName \u003d self.getSibling(\u0027opcServerNameDropdown\u0027).props.value\n\topcServerNamespaceTextField \u003d self.getSibling(\u0027opcServerNamespaceTextField\u0027)\n\t#+ self.props.selection\t+ \u0027     data: \u0027+ self.props.selectionData\t\n\t\n\topcTree \u003d self\n\topcPath \u003d \u0027\u0027\n\tif len(event.data) \u003e 0:\n\t\tselectedBranch \u003d self.props\n\t\tfor index in event.itemPath: \n\t\t\tselectedBranch \u003d selectedBranch.items[index]\n#\t\t\tif len(opcPath) \u003e 0:\n#\t\t\t\topcPath \u003d opcPath +\u0027.\u0027 + selectedBranch[\u0027label\u0027]\n#\t\t\telse:\n#\t\t\t\topcPath \u003d selectedBranch[\u0027label\u0027]\n#\t\t\t\topcServerNamespaceTextField.props.text \u003d selectedBranch[\u0027data\u0027][\u0027namespace\u0027]\n\t\topcServerNamespaceTextField.props.text \u003d \u0027\u0027\n\t\topcNodeID \u003d event.data[\u0027nodeID\u0027]\n\t\tselectedBranch[\u0027expanded\u0027] \u003d True\n\t\tselectedBranch[\u0027items\u0027]  \u003d StandardUDT.utils.buildTree(opcServerName,opcNodeID)\n\t\tself.parent.custom.OPCTreeViewSelectedBranch \u003d selectedBranch[\u0027data\u0027][\u0027nodeID\u0027]\n\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "opcServerTopicTreeView"
+        },
+        "position": {
+          "height": 317,
+          "width": 908.9999999999999,
+          "x": 330.454,
+          "y": 361.02
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "path": "material/stop"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/arrow_right"
+              },
+              "expanded": {
+                "path": "material/arrow_drop_down"
+              }
+            }
+          },
+          "style": {
+            "color": "#555555",
+            "fontFamily": "inherit",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.tree"
+      },
+      {
+        "meta": {
+          "name": "opcPathTextArea"
+        },
+        "position": {
+          "height": 48,
+          "width": 651.9999999999999,
+          "x": 594.93375,
+          "y": 717.625
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.opc_serverTopic\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFF9B2"
+          }
+        },
+        "type": "ia.input.text-area"
+      },
+      {
+        "meta": {
+          "name": "Label_33"
+        },
+        "position": {
+          "height": 20,
+          "width": 212.99999999999994,
+          "x": 324.54975,
+          "y": 330.054
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "OPC Path Picker"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\temptyList \u003d []\n\topcTree \u003d self.getSibling(\u0027opcServerTopicTreeView\u0027)\n\topcTree.props.items \u003d emptyList\n\tnewBranches \u003d []\n\topcServerName \u003d self.getSibling(\u0027opcServerNameDropdown\u0027).props.value\n\topcNodeID \u003d \u0027\u0027 #root Node Query\n\tnewBranches \u003d StandardUDT.utils.buildTree(opcServerName,opcNodeID)\n\topcTree.props.items \u003d newBranches\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "refreshOPCTreeViewButton"
+        },
+        "position": {
+          "height": 21,
+          "width": 80,
+          "x": 1160.90375,
+          "y": 361.674
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" )"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Refresh"
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "treeRefreshRequest",
+              "pageScope": false,
+              "script": "\temptyList \u003d []\n\topcTree \u003d self.getSibling(\u0027opcServerTopicTreeView\u0027)\n\topcTree.props.items \u003d emptyList\n\tnewBranches \u003d []\n\topcServerName \u003d self.getSibling(\u0027opcServerNameDropdown\u0027).props.value\n\topcNodeID \u003d \u0027\u0027 #root Node Query\n\tnewBranches \u003d StandardUDT.utils.buildTree(opcServerName,opcNodeID)\n\topcTree.props.items \u003d newBranches\n\n",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Button_10"
+        },
+        "position": {
+          "height": 126,
+          "width": 277,
+          "x": 9.55,
+          "y": 415.003125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FF8C00"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_34"
+        },
+        "position": {
+          "height": 38,
+          "width": 215.99999999999994,
+          "x": 33.4688,
+          "y": 422.270125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "OPC / Device Server Parameters"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_18"
+        },
+        "position": {
+          "height": 20,
+          "rotate": {
+            "anchor": "50% 36%"
+          },
+          "width": 215,
+          "x": 25.3911,
+          "y": 629.90725
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "OPC Server Namespace"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tif (self.props.text[len(self.props.text)-1] !\u003d \u0027;\u0027):\n\t\tself.props.text \u003d self.props.text +\u0027;\u0027 \t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "opcServerNamespaceTextField"
+        },
+        "position": {
+          "height": 20,
+          "width": 240,
+          "x": 25.8582,
+          "y": 646.70325
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} \u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.opc_serverNamespace\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "enabled": null,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_19"
+        },
+        "position": {
+          "height": 20,
+          "width": 215,
+          "x": 17.5501,
+          "y": 482.187125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "OPC Server Name"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\topcServerName \u003d self\n\topcServerNamespace \u003d self.getSibling(\"opcServerNamespaceTextField\")\n\tif (opcServerName.props.value \u003d\u003d \"Ignition OPC UA Server\"):\n\t\topcServerNamespace.props.text \u003d \"ns\u003d1;\"\n\telse:\n\t\tmessageType \u003d \u0027treeRefreshRequest\u0027\n\t\tsystem.perspective.sendMessage(messageType, \u0027\u0027, scope \u003d \u0027view\u0027)\n#\t\topcServerNamespace.props.text \u003d \"ns\u003d2\"\n#\t\topcTopicTreeView \u003d self.getSibling(\"opcServerTopicTreeView\")\n#\t\topcTopicTreeView.props.items \u003d []\n#\t\tnodes \u003d system.opc.browseServer(opcServerName.props.value,\u0027\u0027)\n#\t\tlogger.info(str(len(nodes)))\n#\t\tbranch \u003d []\n#\t\tfor index in nodes:\n#\t\t\tnode \u003d index\n#\t\t\tnodeID \u003d \u0027\u0027\n#\t\t\tnodeID \u003d str(node.getServerNodeId())\n#\t\t\tnodeID \u003d nodeID.replace(\u0027[\u0027+opcServerName.props.label+\u0027]\u0027,\u0027\u0027)\n#\t\t\tdisplayName \u003d node.getDisplayName()\n#\t\t\tlimb \u003d {\u0027label\u0027: displayName,\n#\t\t\t\t\t\u0027expanded\u0027: False,\n##\t\t\t\t\t\u0027data\u0027: {\u0027nodeID\u0027:nodeID},\n#\t\t\t\t\t\u0027items\u0027: []\n#\t\t\t\t\t }\n#\t\t\tbranch.append(limb)\n#\t\titem \u003d {\u0027label\u0027:opcServerName.props.value,\n#\t\t\t\t\t\u0027expanded\u0027:True,\n#\t\t\t\t\t\u0027data\u0027:{},\n#\t\t\t\t\t\u0027items\u0027:branch\n#\t\t\t\t}\n\t\t\n#\t\topcTopicTreeView.props.items.append(item)\n\t#\t\n\t\t\n\t "
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onMouseDown": {
+              "config": {
+                "script": "\temptyList \u003d []\n\tincludeDisabled \u003d True\n\topcServersDropdown \u003d self\n\topcServers \u003d system.opc.getServers(includeDisabled)\n\topcServersDropdown.props.options \u003d emptyList\n\tfor opcServer in opcServers:\n\t\topcServersDropdown.props.options.append({\u0027value\u0027: opcServer,\u0027label\u0027: opcServer})\n\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "opcServerNameDropdown"
+        },
+        "position": {
+          "height": 21,
+          "width": 262.02,
+          "x": 17.8988,
+          "y": 503.452125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.opc_serverName\u0027"
+              },
+              "transforms": [
+                {
+                  "expression": "replace({value}, \"\\\"\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "dropdownOptionStyle": {
+            "classes": "UDTConfigureTextFieldEntry"
+          },
+          "style": {
+            "backgroundColor": "#FFF9B2"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Button_11"
+        },
+        "position": {
+          "height": 168,
+          "width": 277,
+          "x": 9.65,
+          "y": 169.82
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#00D900"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_35"
+        },
+        "position": {
+          "height": 25,
+          "width": 215.99999999999994,
+          "x": 40.689375,
+          "y": 169.6325
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Flex / Kafka Parameters"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_16"
+        },
+        "position": {
+          "height": 20,
+          "width": 215,
+          "x": 41.3983375,
+          "y": 202.063
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Kakfa Device Path Prefix"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tif (self.props.text[0] !\u003d \u0027[\u0027):\n\t\tself.props.text \u003d \u0027[\u0027 + self.props.text\n\tif (self.props.text[len(self.props.text)-1] !\u003d \u0027]\u0027):\n\t\t\tself.props.text \u003d self.props.text + \u0027]\u0027\n \t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "kafkaDevicePathPrefixTextField"
+        },
+        "position": {
+          "height": 20,
+          "width": 195,
+          "x": 41.4023375,
+          "y": 222.563
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_17"
+        },
+        "position": {
+          "height": 20,
+          "width": 215,
+          "x": 41.8513375,
+          "y": 254.063
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTop"
+          },
+          "text": "Flex Tenant"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "kafkaTenantTextField"
+        },
+        "position": {
+          "height": 20,
+          "width": 195,
+          "x": 41.855337500000005,
+          "y": 273.563
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.kafka_tenant\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "enabled": null,
+          "style": {
+            "classes": "UDTConfigureTextFieldEntry"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.tag.writeBlocking([self.session.custom.AssetPath + \u0027/_create_kafka_tag\u0027],[1])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "createKafkaTagsButton"
+        },
+        "position": {
+          "height": 21,
+          "width": 138,
+          "x": 67.921875,
+          "y": 305.141625
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0)  ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "(len({../kafkaDevicePathPrefixTextField.props.text})\u003e0) \u0026\u0026 (len({../kafkaTenantTextField.props.text})\u003e0)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Create Kafka Tags"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\topcPathTextArea \u003d self.getSibling(\u0027opcPathTextArea\u0027)\n\topcPathTextArea.props.text \u003d self.parent.custom.OPCTreeViewSelectedBranch"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "selectOPCTreeViewButton"
+        },
+        "position": {
+          "height": 21,
+          "width": 80,
+          "x": 1160.9,
+          "y": 387.674
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(len({parent.custom.AssetTenant})\u003e0 \u0026\u0026 len({parent.custom.AssetSite})\u003e0 \u0026\u0026 len({parent.custom.AssetID})\u003e0) \u0026\u0026 ({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" ) ||  {session.props.device.type}\u003d\u0027designer\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "({../opcServerNameDropdown.props.value} !\u003d \"Ignition OPC UA Server\" )"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Select"
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "treeRefreshRequest",
+              "pageScope": false,
+              "script": "\temptyList \u003d []\n\topcTree \u003d self.getSibling(\u0027opcServerTopicTreeView\u0027)\n\topcTree.props.items \u003d emptyList\n\tnewBranches \u003d []\n\topcServerName \u003d self.getSibling(\u0027opcServerNameDropdown\u0027).props.value\n\topcNodeID \u003d \u0027\u0027 #root Node Query\n\tnewBranches \u003d StandardUDT.utils.buildTree(opcServerName,opcNodeID)\n\topcTree.props.items \u003d newBranches\n\n",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "custom": {
+      "tree": []
+    },
+    "events": {
+      "dom": {
+        "onMouseEnter": {
+          "config": {
+            "script": "\temptyList \u003d []\n\tincludeDisabled \u003d True\n\topcServerDropdown \u003d self.view.rootContainer.getChild(\u0027opcServerNameDropdown\u0027)\n\topcServers \u003d system.opc.getServers(includeDisabled)\n\topcServerDropdown.props.options \u003d emptyList\n\tfor opcServer in opcServers:\n\t\topcServerDropdown.props.options.append({\u0027value\u0027: opcServer,\u0027label\u0027: opcServer})\n\t\t\n\t\t\n\topcServerDeviceDropdown \u003d self.view.rootContainer.getChild(\u0027opcServerDeviceDropdown\u0027)\n\topcServerDevices \u003d system.device.listDevices()\n\topcServerDevices \u003d system.dataset.toPyDataSet(opcServerDevices)\n\topcServerDeviceDropdown.props.options \u003d emptyList\n\tfor row in opcServerDevices:\n\t\topcServerDeviceDropdown.props.options.append({\u0027value\u0027: \u0027s\u003d[\u0027 + row[\u0027Name\u0027] + \u0027]\u0027,\u0027label\u0027: row[\u0027Name\u0027]})\n\n\t\t\t\t\t"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.AssetID": {
+        "binding": {
+          "config": {
+            "path": "session.custom.AssetPath"
+          },
+          "type": "property"
+        }
+      },
+      "custom.AssetSite": {
+        "binding": {
+          "config": {
+            "path": "session.custom.AssetSite"
+          },
+          "type": "property"
+        }
+      },
+      "custom.AssetTenant": {
+        "binding": {
+          "config": {
+            "path": "session.custom.AssetTenant"
+          },
+          "type": "property"
+        }
+      },
+      "custom.OPCTreeViewSelectedBranch": {
+        "binding": {
+          "config": {
+            "path": "./opcServerTopicTreeView.props.selectionData"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 305
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Features"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "backActionStyle": {
+            "classes": "Menu/All_Header"
+          },
+          "backActionText": "All Features",
+          "headerStyle": {
+            "classes": "Menu/Item_Selected"
+          },
+          "itemStyle": {
+            "classes": "Menu/Item"
+          },
+          "items": [
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/pending_actions"
+                },
+                "text": "Portfolio Management"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "target": "/portfolio-management"
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/zoom_out_map"
+                },
+                "text": "Site View"
+              },
+              "navIcon": {},
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/Site",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/assignment_returned"
+                },
+                "text": "REE Monitoring"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "target": "/ree-monitoring"
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/alarm"
+                },
+                "text": "Alarms"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "target": "/alarms"
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": ""
+                },
+                "text": ""
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            }
+          ],
+          "style": {
+            "backgroundColor": "#DADDE0",
+            "classes": "Menu/Menu"
+          }
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Menu/Menu"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

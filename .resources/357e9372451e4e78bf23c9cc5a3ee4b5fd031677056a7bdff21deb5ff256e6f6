@@ -1,0 +1,1064 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 816,
+      "width": 1132
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 40.47,
+          "width": 428.34,
+          "x": 26.38,
+          "y": 30.75
+        },
+        "props": {
+          "style": {
+            "fontSize": 30
+          },
+          "text": "Portfolio Management"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8",
+          "tooltip": {
+            "style": {
+              "fontWeight": "normal"
+            }
+          }
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 158.25,
+          "x": 30,
+          "y": 157.73
+        },
+        "props": {
+          "text": "Operating Mode",
+          "textStyle": {
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_23"
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 146.14,
+          "x": 30.9,
+          "y": 270.16
+        },
+        "props": {
+          "text": "Active Power (MW)"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_17"
+        },
+        "position": {
+          "height": 30,
+          "width": 90,
+          "x": 378.58,
+          "y": 623.55
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/Power_Constraint_Ack"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "#C0C0C000",
+          "diodeOffColor": "#C0C0C000",
+          "diodeOnColor": "#0B00FF",
+          "numberFormat": "#,##0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_18"
+        },
+        "position": {
+          "height": 30,
+          "width": 90,
+          "x": 377.44,
+          "y": 578.92
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/Power_Constraint"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "#C0C0C000",
+          "diodeOffColor": "#C0C0C000",
+          "diodeOnColor": "#0B00FF",
+          "numberFormat": "#,##0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_24"
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 301.45,
+          "x": 31.92,
+          "y": 373.89
+        },
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 0.35
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "REE Power Constraint (ACS) (MW)",
+          "textStyle": {
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_19"
+        },
+        "position": {
+          "height": 30,
+          "width": 90,
+          "x": 376.44,
+          "y": 269.1
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/Active_Power"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "#C0C0C000",
+          "diodeOffColor": "#C0C0C000",
+          "diodeOnColor": "#0B00FF",
+          "numberFormat": "#,##0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_25"
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 241.57,
+          "x": 31.92,
+          "y": 578.92
+        },
+        "props": {
+          "text": "Power Constraint Applied (MW)"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "REEPowerConstraint_LedDisplay"
+        },
+        "position": {
+          "height": 30,
+          "width": 90,
+          "x": 376.44,
+          "y": 370.62
+        },
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 0.35
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/REE/REE_Power_Constraint"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "#C0C0C000",
+          "diodeOffColor": "#C0C0C000",
+          "diodeOnColor": "#0B00FF",
+          "numberFormat": "#,##0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_27"
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 237.49,
+          "x": 30.9,
+          "y": 621.19
+        },
+        "props": {
+          "text": "Power Constraint Mirror (MW)"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown_ModeSelect"
+        },
+        "position": {
+          "height": 37.37,
+          "width": 259.79,
+          "x": 207.44,
+          "y": 153.49
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/Operating_Mode"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "options": [
+            {
+              "label": "1 - Automatic",
+              "value": "Automatic"
+            },
+            {
+              "label": "2 - Semi-Automatic",
+              "value": "Semi-Automatic"
+            },
+            {
+              "label": "3 - Manual",
+              "value": "Manual"
+            }
+          ]
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Button_0",
+          "tooltip": {
+            "enabled": true
+          },
+          "visible": false
+        },
+        "position": {
+          "height": 154.63,
+          "width": 467.28,
+          "x": 24.9,
+          "y": 559.11
+        },
+        "props": {
+          "image": {
+            "style": {
+              "opacity": "1"
+            }
+          },
+          "text": "Apply"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tSiteName \u003d str(self.getSibling(\"Dropdown_SiteSelect\").props.value)\n\tTagPath \u003d [\"[default]Total Spain/Sites/\" + SiteName + \"/Power_Constraint\"]\n\tManual_Power_Constraint \u003d str(self.getSibling(\u0027Manual_Setpoint_InputBox\u0027).props.value)\n\tsystem.tag.writeBlocking(TagPath, Manual_Power_Constraint)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "height": 35.25,
+          "width": 81.16,
+          "x": 490.38,
+          "y": 534.2
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 0
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 0
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 1
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "Apply"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tSiteName \u003d str(self.getSibling(\"Dropdown_SiteSelect\").props.value)\n\tTagPath \u003d \"[default]Total Spain/Sites/\" + SiteName + \"/Power_Constraint\"\n\tPower_Constraint_Manual \u003d str(self.getSibling(\u0027Manual_Setpoint_InputBox\u0027).props.value)\n\tsystem.tag.readBlocking(TagPath)\n\tsystem.tag.writeBlocking(TagPath, Power_Constraint_Manual)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Manual_Setpoint_InputBox"
+        },
+        "position": {
+          "height": 33.21,
+          "width": 45,
+          "x": 426.43,
+          "y": 536.16
+        },
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "config": {
+                "expression": "{../Dropdown_ModeSelect.props.value}"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Manual",
+                      "output": 1
+                    },
+                    {
+                      "input": "Automatic",
+                      "output": 0.35
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 0.35
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/Power_Constraint_Manual"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "align": "center",
+          "format": "none",
+          "spinner": {
+            "enabled": false
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_26"
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 241.57,
+          "x": 31.92,
+          "y": 535.67
+        },
+        "propConfig": {
+          "props.textStyle.opacity": {
+            "binding": {
+              "config": {
+                "expression": "{../Dropdown_ModeSelect.props.value}\r\n"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 0.35
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 1
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 0.35
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Manual Power Constraint (MW)"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 29.13,
+          "width": 269.98,
+          "x": 490.94,
+          "y": 536.55
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 0
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "Only available in Manual Mode (3)"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 29.13,
+          "width": 269.98,
+          "x": 489.36,
+          "y": 370.79
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 0
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 0
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 1
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "Not Applied in Manual Mode"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown_SiteSelect"
+        },
+        "position": {
+          "height": 37.37,
+          "width": 259.79,
+          "x": 28.87,
+          "y": 95.4
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]SitesWithACSList"
+              },
+              "transforms": [
+                {
+                  "code": "\tlist \u003d []\n\tlist \u003d map(lambda x: system.util.jsonDecode(x), value)\n\treturn list",
+                  "type": "script"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "value": "FSOMA"
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t\n\t\n\t\n#\tREE_Power_Constraint \u003d str(self.getSibling(\"REEPowerConstraint_LedDisplay\").props.value)\n#\tREE_Constraint_Reason \u003d str(self.getSibling(\"REEPowerConstraint_LedDisplay\").props.value)\n\t\n#\tREE_Power_Constraint_Reason \u003d [\"[default]Total Spain/Sites/\" + SiteName + \"/REE/REE_Constraint_Reason\"]\n\t\n#\treadPaths \u003d [\"[.]REE_Power_Constraint\",\"[.]REE_Constraint_Reason\"]\n\t\n\tSiteName \u003d str(self.getSibling(\"Dropdown_SiteSelect\").props.value)\n\treadPaths \u003d [\"[default]Total Spain/Sites/\" + SiteName + \"/REE/REE_Power_Constraint\" , \"[default]Total Spain/Sites/\" + SiteName + \"/REE/REE_Constraint_Reason\"]\n\twritePath \u003d [\"[default]Total Spain/Sites/\" + SiteName + \"/Power_Constraint\"]\n\t\n\tqValues \u003d system.tag.readBlocking(readPaths)\n\t\n\tif qValues[1].value \u003e 0:\n\t\tsystem.tag.writeBlocking(writePath, qValues[0])\n\n\t\n#\treadPaths \u003d [\"[.]../Operating_Mode\",\"[.]REE_Power_Constraint\",\"[.]REE_Constraint_Reason\"]\n#\twritePaths \u003d [\"[.]../Power_Constraint\"]\n\t\t\t\t\n#\tqValues \u003d system.tag.readBlocking(readPaths)\n\t\t\t\t\n#\tif (qValues[0].value \u003d\u003d \"Automatic\" and qValues[2].value \u003e 0):\n#\t\tsystem.tag.writeBlocking(writePaths,qValues[1])\n\t\t\t\n\t\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_2"
+        },
+        "position": {
+          "height": 35.25,
+          "width": 81.16,
+          "x": 492.53625,
+          "y": 367.075
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 0
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 0
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "Apply"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_9",
+          "tooltip": {
+            "style": {
+              "fontWeight": "normal"
+            }
+          }
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 193.8,
+          "x": 30.9,
+          "y": 227.16
+        },
+        "props": {
+          "text": "Site Measurement:",
+          "textStyle": {
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10",
+          "tooltip": {
+            "style": {
+              "fontWeight": "normal"
+            }
+          }
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 250.73,
+          "x": 30.9,
+          "y": 333.82
+        },
+        "props": {
+          "text": "Constraint Signal From REE:",
+          "textStyle": {
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_11",
+          "tooltip": {
+            "style": {
+              "fontWeight": "normal"
+            }
+          }
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 283.11,
+          "x": 31.92,
+          "y": 494.38
+        },
+        "props": {
+          "text": "Constraint Signal Sent To Site:",
+          "textStyle": {
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "REEPowerConstraint_LedDisplay_0"
+        },
+        "position": {
+          "height": 30,
+          "width": 90,
+          "x": 377.44,
+          "y": 414.85
+        },
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 0.35
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/REE/REE_Constraint_Reason"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "#C0C0C000",
+          "diodeOffColor": "#C0C0C000",
+          "diodeOnColor": "#0B00FF",
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_28"
+        },
+        "position": {
+          "height": 33.21,
+          "rotate": {
+            "anchor": "0% 50%"
+          },
+          "width": 301.45,
+          "x": 31.92,
+          "y": 415.91
+        },
+        "propConfig": {
+          "props.style.opacity": {
+            "binding": {
+              "config": {
+                "path": "../Dropdown_ModeSelect.props.value"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Semi-Automatic",
+                      "output": 1
+                    },
+                    {
+                      "input": "Manual",
+                      "output": 0.35
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "REE Constraint Reason",
+          "textStyle": {
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "CxUx2PZe",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": true,
+                "title": "Legend",
+                "type": "open",
+                "viewPath": "Popups/Legend",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 623.906,
+          "y": 696.734
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#ADADAD"
+          },
+          "text": "Legend"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Connected_Icon",
+          "visible": 1
+        },
+        "position": {
+          "height": 26.03,
+          "width": 33.05,
+          "x": 670.856125,
+          "y": 100.9
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "SiteName": "{../Dropdown_SiteSelect.props.value}"
+                },
+                "tagPath": "[default]Total Spain/Sites/{SiteName}/Network Connectivity"
+              },
+              "transforms": [
+                {
+                  "fallback": "#AAAAAA",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#00AC00"
+                    },
+                    {
+                      "input": false,
+                      "output": "#D90000"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "path": "material/brightness_1"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "SiteConn_Label_0"
+        },
+        "position": {
+          "height": 27.74,
+          "width": 160.52,
+          "x": 520.416125,
+          "y": 99.9
+        },
+        "props": {
+          "text": "Site Connectivity : "
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

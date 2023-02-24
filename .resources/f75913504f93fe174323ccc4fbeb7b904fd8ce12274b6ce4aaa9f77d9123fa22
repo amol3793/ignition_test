@@ -1,0 +1,251 @@
+{
+  "custom": {},
+  "params": {
+    "callingID": "value",
+    "opcItems": "value",
+    "opcLabel": "value",
+    "opcServerName": "value",
+    "opcTag": "value"
+  },
+  "propConfig": {
+    "params.callingID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.opcItems": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.opcLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.opcServerName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.opcTag": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 703,
+      "width": 305
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Button_9"
+        },
+        "position": {
+          "height": 584,
+          "width": 289,
+          "x": 8.5,
+          "y": 64
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FFF9B2"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_35"
+        },
+        "position": {
+          "height": 25,
+          "width": 215.99999999999994,
+          "x": 37.3769,
+          "y": 38.633
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "OPC Tag Picker"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tPayload \u003d {\u0027opcTag\u0027: self.view.params.opcTag}\n\tsystem.perspective.sendMessage(self.view.params.callingID, payload \u003d Payload, scope \u003d \u0027session\u0027)\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 37.6875,
+          "y": 656
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "len({view.params.opcTag}) !\u003d 0"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "OK"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "opcPicker",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": "UDTConfigure/opcPicker",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 34,
+          "rotate": {
+            "anchor": "50% 25%"
+          },
+          "width": 80,
+          "x": 167,
+          "y": 656
+        },
+        "props": {
+          "text": "Cancel"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_36"
+        },
+        "position": {
+          "height": 25,
+          "width": 290,
+          "x": 5.75,
+          "y": 0.26
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.opcLabel"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "13pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onItemClicked": {
+              "config": {
+                "script": "\topcTree \u003d self\n\topcPath \u003d \u0027\u0027\n\tif len(event.data) \u003e 0:\n\t\tselectedBranch \u003d self.props\n\t\tfor index in event.itemPath: \n\t\t\tselectedBranch \u003d selectedBranch.items[index]\n\t\t\topcPath \u003d opcPath +\u0027.\u0027 + selectedBranch[\u0027label\u0027]\n\t\tself.view.params.opcTag \u003d opcPath\n\t\topcNodeID \u003d event.data[\u0027nodeID\u0027]\n\t\tselectedBranch[\u0027expanded\u0027] \u003d True\n\t\tselectedBranch[\u0027items\u0027]  \u003d StandardUDT.utils.buildTree(self.view.params.opcServerName,opcNodeID)\n\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "opcServerTopicTreeView"
+        },
+        "position": {
+          "height": 575,
+          "width": 280,
+          "x": 13.46,
+          "y": 68.18
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "path": "session.custom.opcItems"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "path": "material/stop"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/arrow_right"
+              },
+              "expanded": {
+                "path": "material/arrow_drop_down"
+              }
+            },
+            "rowHeight": 20
+          },
+          "style": {
+            "color": "#555555",
+            "fontFamily": "Inherit",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.tree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

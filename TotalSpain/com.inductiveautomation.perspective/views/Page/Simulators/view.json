@@ -1,0 +1,1020 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onEditCellCommit": {
+              "config": {
+                "script": "\tcol \u003d event.column\n\trow \u003d event.row\n\t\n\tpath\u003d\"[default]AutoGrid/DRSims\"\n\tdata\u003dsystem.tag.readBlocking([path])[0].value\n\tdata\u003dsystem.dataset.updateRow(data,row,{col :event.value})\n\tsystem.tag.writeBlocking([path], [data])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "height": 168.5752193451744,
+          "width": 760,
+          "x": 15,
+          "y": 91.362
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]AutoGrid/DRSims"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "path",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Base Tag Path"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": false,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "name",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Simulator Name"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "normal",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Normal Load"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "shed",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Shed Amount"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "style": {
+            "classes": "Base/Table"
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay"
+        },
+        "position": {
+          "height": 36.123261288251655,
+          "width": 100,
+          "x": 304,
+          "y": 312.844
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "site": "{../Table.props.selection.data[0].path}"
+                },
+                "tagPath": "{site}/LOAD_POWER_ACTUAL"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "height": 37.12668521292532,
+          "width": 128,
+          "x": 406,
+          "y": 312.335
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "site": "{../Table.props.selection.data[0].path}"
+                },
+                "tagPath": "{site}/RTCC_DR_DEPLOY"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "text": "Shed"
+          },
+          "style": {
+            "classes": "Base/Gray"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 79,
+          "x": 232,
+          "y": 321.501
+        },
+        "props": {
+          "text": "Site Load"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 37.12668521292532,
+          "width": 100,
+          "x": 227,
+          "y": 268.547
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "DR Site:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 33.112989514230684,
+          "width": 202,
+          "x": 326,
+          "y": 269.565
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "../Table.props.selection.data"
+              },
+              "transforms": [
+                {
+                  "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \"No site selected\"\n\telse:\n\t\treturn value[0][\"name\"]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderWidth": 2,
+            "fontSize": 24
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 300,
+          "x": 15,
+          "y": 56
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Demand Response"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "height": 56,
+          "width": 800
+        },
+        "props": {
+          "params": {
+            "icon": "casino",
+            "text": "Simulators"
+          },
+          "path": "Page/Embedded/Title"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 300,
+          "x": 15,
+          "y": 366
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Battery Storage"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onEditCellCommit": {
+              "config": {
+                "script": "\tcol \u003d event.column\n\trow \u003d event.row\n\t\n\tpath\u003d\"[default]AutoGrid/BattSims\"\n\tdata\u003dsystem.tag.readBlocking([path])[0].value\n\tdata\u003dsystem.dataset.updateRow(data,row,{col :event.value})\n\tsystem.tag.writeBlocking([path], [data])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table_0"
+        },
+        "position": {
+          "height": 168.5752193451744,
+          "width": 760,
+          "x": 15,
+          "y": 401.362
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]AutoGrid/BattSims"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "path",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Base Tag Path"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": false,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "name",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Simulator Name"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "energy",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Energy Capacity"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": true,
+              "field": "power",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Power"
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "#62A3F6",
+                  "linecap": "round",
+                  "width": 5
+                },
+                "max": 100,
+                "track": {
+                  "color": "#DADADA",
+                  "linecap": "round",
+                  "width": 2
+                },
+                "value": {
+                  "color": "#7D7D7D",
+                  "show": true
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "#2196F3",
+                  "unselected": "#FFFFFF"
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "style": {
+            "classes": "Base/Table"
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 37.12668521292532,
+          "width": 100,
+          "x": 227,
+          "y": 578.547
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Battery:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 20.068478493473144,
+          "width": 120,
+          "x": 202,
+          "y": 631.501
+        },
+        "props": {
+          "text": "Battery Meter"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_0"
+        },
+        "position": {
+          "height": 36.123261288251655,
+          "width": 100,
+          "x": 304,
+          "y": 622.844
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "site": "{../Table_0.props.selection.data[0].path}"
+                },
+                "tagPath": "{site}/GEN_POWER_ACTUAL"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_0"
+        },
+        "position": {
+          "height": 37,
+          "width": 190,
+          "x": 406,
+          "y": 622.335
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "site": "{../Table_0.props.selection.data[0].path}"
+                },
+                "tagPath": "{site}/REMOTE_STATUS"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "text": "Remote Status"
+          },
+          "style": {
+            "classes": "Base/Gray"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 35,
+          "x": 268,
+          "y": 671.501
+        },
+        "props": {
+          "text": "SoC"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_1"
+        },
+        "position": {
+          "height": 36.123261288251655,
+          "width": 100,
+          "x": 304,
+          "y": 662.844
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "site": "{../Table_0.props.selection.data[0].path}"
+                },
+                "tagPath": "{site}/SOE_ABS_ACTUAL"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 33,
+          "width": 297,
+          "x": 326,
+          "y": 579.565
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "../Table_0.props.selection.data"
+              },
+              "transforms": [
+                {
+                  "code": "\tif len(value) \u003d\u003d 0:\n\t\treturn \"No battery selected\"\n\telse:\n\t\treturn value[0][\"name\"]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderWidth": 2,
+            "fontSize": 24
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "yWcUyZd5",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewPath": "Popups/AddSim"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 44,
+          "width": 88,
+          "x": 351,
+          "y": 732
+        },
+        "props": {
+          "text": "Add Simulator"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tautogrid.sims.reset_batt_soc()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 44,
+          "width": 88,
+          "x": 457,
+          "y": 732
+        },
+        "props": {
+          "text": "Reset SoC"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

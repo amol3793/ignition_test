@@ -1,0 +1,1009 @@
+{
+  "custom": {},
+  "params": {
+    "name": "",
+    "path": ""
+  },
+  "propConfig": {
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "XYChart"
+        },
+        "position": {
+          "height": 331,
+          "width": 746,
+          "x": 17.0313,
+          "y": 171
+        },
+        "propConfig": {
+          "props.dataSources.example[0].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_LOW_STOP_HZ\")-0.1"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[0].kW": {
+            "binding": {
+              "config": {
+                "expression": "min((tag({view.params.path}+\"/DROOP_LOW_MAX_POWER\")+tag({view.params.path}+\"/SET_POINT_ABS\")), tag({view.params.path}+\"/AssetSettings/META_MAX_DISCHARGE\"))"
+              },
+              "overlayOptOut": true,
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[1].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_LOW_STOP_HZ\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[1].kW": {
+            "binding": {
+              "config": {
+                "expression": "min((tag({view.params.path}+\"/DROOP_LOW_MAX_POWER\")+tag({view.params.path}+\"/SET_POINT_ABS\")), tag({view.params.path}+\"/AssetSettings/META_MAX_DISCHARGE\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[2].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_LOW_START_HZ\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[2].kW": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/SET_POINT_ABS"
+              },
+              "type": "tag"
+            }
+          },
+          "props.dataSources.example[3].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_HIGH_START_HZ\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[3].kW": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/SET_POINT_ABS"
+              },
+              "type": "tag"
+            }
+          },
+          "props.dataSources.example[4].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_HIGH_START_HZ\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[4].kW": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SET_POINT_ABS"
+              },
+              "type": "tag"
+            }
+          },
+          "props.dataSources.example[5].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_HIGH_STOP_HZ\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[5].kW": {
+            "binding": {
+              "config": {
+                "expression": "max((tag({view.params.path}+\"/DROOP_HIGH_MAX_POWER\")+tag({view.params.path}+\"/SET_POINT_ABS\")), tag({view.params.path}+\"/AssetSettings/META_MAX_CHARGE\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[6].Hz": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.path}+\"/DROOP_HIGH_STOP_HZ\")+0.1"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.example[6].kW": {
+            "binding": {
+              "config": {
+                "expression": "max((tag({view.params.path}+\"/DROOP_HIGH_MAX_POWER\")+tag({view.params.path}+\"/SET_POINT_ABS\")), tag({view.params.path}+\"/AssetSettings/META_MAX_CHARGE\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.dataSources.frequency[0].Hz": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{../Dropdown.props.value}"
+                },
+                "tagPath": "{value}/FREQUENCY"
+              },
+              "type": "tag"
+            }
+          },
+          "props.dataSources.frequency[1].Hz": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{../Dropdown.props.value}"
+                },
+                "tagPath": "{value}/FREQUENCY"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "dataSources": {
+            "example": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          },
+          "legend": {
+            "enabled": false
+          },
+          "series": [
+            {
+              "candlestick": {
+                "appearance": {
+                  "deriveFieldsFromData": {
+                    "fill": {
+                      "color": "",
+                      "opacity": ""
+                    },
+                    "stroke": {
+                      "color": "",
+                      "opacity": "",
+                      "width": ""
+                    }
+                  },
+                  "fill": {
+                    "color": "",
+                    "opacity": 1
+                  },
+                  "heatRules": {
+                    "dataField": "",
+                    "enabled": false,
+                    "max": "",
+                    "min": ""
+                  },
+                  "stacked": false,
+                  "stroke": {
+                    "color": "",
+                    "opacity": 1,
+                    "width": 1
+                  }
+                },
+                "high": {
+                  "x": "",
+                  "y": ""
+                },
+                "low": {
+                  "x": "",
+                  "y": ""
+                },
+                "open": {
+                  "x": "",
+                  "y": ""
+                }
+              },
+              "column": {
+                "appearance": {
+                  "deriveFieldsFromData": {
+                    "fill": {
+                      "color": "",
+                      "opacity": ""
+                    },
+                    "stroke": {
+                      "color": "",
+                      "opacity": "",
+                      "width": ""
+                    }
+                  },
+                  "fill": {
+                    "color": "",
+                    "opacity": 1
+                  },
+                  "heatRules": {
+                    "dataField": "",
+                    "enabled": false,
+                    "max": "",
+                    "min": ""
+                  },
+                  "height": null,
+                  "stacked": false,
+                  "stroke": {
+                    "color": "",
+                    "opacity": 1,
+                    "width": 1
+                  },
+                  "width": null
+                },
+                "open": {
+                  "x": "",
+                  "y": ""
+                }
+              },
+              "data": {
+                "source": "example",
+                "x": "Hz",
+                "y": "kW"
+              },
+              "defaultState": {
+                "visible": true
+              },
+              "hiddenInLegend": false,
+              "label": {
+                "text": "Droop Curve"
+              },
+              "line": {
+                "appearance": {
+                  "bullets": [
+                    {
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "rotation": "",
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "enabled": false,
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "heatRules": {
+                        "dataField": "",
+                        "enabled": false,
+                        "max": 100,
+                        "min": 2
+                      },
+                      "height": 10,
+                      "label": {
+                        "position": {
+                          "dx": 0,
+                          "dy": 0
+                        },
+                        "text": "{value}"
+                      },
+                      "render": "circle",
+                      "rotation": 0,
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "tooltip": {
+                        "background": {
+                          "color": "",
+                          "opacity": 1
+                        },
+                        "cornerRadius": 3,
+                        "enabled": true,
+                        "pointerLength": 4,
+                        "text": "{name}: [bold]{valueY}[/]"
+                      },
+                      "width": 10
+                    }
+                  ],
+                  "connect": true,
+                  "fill": {
+                    "color": "",
+                    "opacity": 0
+                  },
+                  "minDistance": 0.5,
+                  "stroke": {
+                    "color": "",
+                    "dashArray": "",
+                    "opacity": 1,
+                    "width": 3
+                  },
+                  "tensionX": 1,
+                  "tensionY": 1
+                },
+                "open": {
+                  "x": "",
+                  "y": ""
+                }
+              },
+              "name": "droop",
+              "render": "line",
+              "stepLine": {
+                "appearance": {
+                  "bullets": [
+                    {
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "rotation": "",
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "enabled": true,
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "heatRules": {
+                        "dataField": "",
+                        "enabled": false,
+                        "max": 100,
+                        "min": 2
+                      },
+                      "height": 10,
+                      "label": {
+                        "position": {
+                          "dx": 0,
+                          "dy": 0
+                        },
+                        "text": "{value}"
+                      },
+                      "render": "circle",
+                      "rotation": 0,
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "tooltip": {
+                        "background": {
+                          "color": "",
+                          "opacity": 1
+                        },
+                        "cornerRadius": 3,
+                        "enabled": true,
+                        "pointerLength": 4,
+                        "text": "{name}: [bold]{valueY}[/]"
+                      },
+                      "width": 10
+                    }
+                  ],
+                  "connect": true,
+                  "fill": {
+                    "color": "",
+                    "opacity": 0
+                  },
+                  "minDistance": 0.5,
+                  "stroke": {
+                    "color": "",
+                    "dashArray": "",
+                    "opacity": 1,
+                    "width": 3
+                  },
+                  "tensionX": 1,
+                  "tensionY": 1
+                },
+                "open": {
+                  "x": "",
+                  "y": ""
+                }
+              },
+              "tooltip": {
+                "background": {
+                  "color": "",
+                  "opacity": 1
+                },
+                "cornerRadius": 3,
+                "enabled": true,
+                "pointerLength": 4,
+                "text": "{name}: [bold]{valueY}[/]"
+              },
+              "visible": true,
+              "xAxis": "frequency",
+              "yAxis": "power",
+              "zIndex": 0
+            }
+          ],
+          "xAxes": [
+            {
+              "appearance": {
+                "font": {
+                  "size": "",
+                  "weight": 500
+                },
+                "grid": {
+                  "color": "",
+                  "dashArray": "",
+                  "minDistance": 60,
+                  "opacity": 1,
+                  "position": 0.5
+                },
+                "inside": false,
+                "labels": {
+                  "color": "",
+                  "opacity": 1,
+                  "rotation": 0,
+                  "wrap": true
+                },
+                "opposite": false
+              },
+              "category": {
+                "break": {
+                  "enabled": false,
+                  "endCategory": "",
+                  "size": 0.05,
+                  "startCategory": ""
+                }
+              },
+              "date": {
+                "baseInterval": {
+                  "count": 1,
+                  "enabled": false,
+                  "skipEmptyPeriods": false,
+                  "timeUnit": "hour"
+                },
+                "break": {
+                  "enabled": false,
+                  "endDate": "",
+                  "size": 0.05,
+                  "startDate": ""
+                },
+                "format": "M/d",
+                "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                "range": {
+                  "max": "",
+                  "min": "",
+                  "useStrict": false
+                }
+              },
+              "inversed": false,
+              "label": {
+                "color": "",
+                "enabled": true,
+                "text": "Frequency Hz"
+              },
+              "name": "frequency",
+              "render": "value",
+              "tooltip": {
+                "background": {
+                  "color": "",
+                  "opacity": 1
+                },
+                "cornerRadius": 3,
+                "enabled": true,
+                "pointerLength": 4,
+                "text": ""
+              },
+              "value": {
+                "break": {
+                  "enabled": false,
+                  "endValue": 100,
+                  "size": 0.05,
+                  "startValue": 0
+                },
+                "format": "#,###.##",
+                "logarithmic": false,
+                "range": {
+                  "max": "",
+                  "min": "",
+                  "useStrict": false
+                }
+              },
+              "visible": true
+            }
+          ],
+          "yAxes": [
+            {
+              "appearance": {
+                "font": {
+                  "size": "",
+                  "weight": 500
+                },
+                "grid": {
+                  "color": "",
+                  "dashArray": "",
+                  "minDistance": null,
+                  "opacity": 1,
+                  "position": 0.5
+                },
+                "inside": false,
+                "labels": {
+                  "color": "",
+                  "opacity": 1,
+                  "rotation": 0,
+                  "wrap": true
+                },
+                "opposite": false
+              },
+              "category": {
+                "break": {
+                  "enabled": false,
+                  "endCategory": "",
+                  "size": 0.05,
+                  "startCategory": ""
+                }
+              },
+              "date": {
+                "baseInterval": {
+                  "count": 1,
+                  "enabled": false,
+                  "skipEmptyPeriods": false,
+                  "timeUnit": "hour"
+                },
+                "break": {
+                  "enabled": false,
+                  "endDate": "",
+                  "size": 0.05,
+                  "startDate": ""
+                },
+                "format": "M/d/yyyy HH:mm:ss",
+                "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                "range": {
+                  "max": "",
+                  "min": "",
+                  "useStrict": false
+                }
+              },
+              "inversed": false,
+              "label": {
+                "color": "",
+                "enabled": true,
+                "text": "Power kW"
+              },
+              "name": "power",
+              "render": "value",
+              "tooltip": {
+                "background": {
+                  "color": "",
+                  "opacity": 1
+                },
+                "cornerRadius": 3,
+                "enabled": true,
+                "pointerLength": 4,
+                "text": ""
+              },
+              "value": {
+                "break": {
+                  "enabled": false,
+                  "endValue": 100,
+                  "size": 0.05,
+                  "startValue": 0
+                },
+                "format": "#,###.##",
+                "logarithmic": false,
+                "range": {
+                  "max": "",
+                  "min": "",
+                  "useStrict": false
+                }
+              },
+              "visible": true
+            }
+          ]
+        },
+        "type": "ia.chart.xy"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_2"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 62,
+          "x": 158,
+          "y": 133
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_LOW_MAX_POWER"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_1"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 62,
+          "x": 158,
+          "y": 103
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_LOW_STOP_HZ"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_5"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 62,
+          "x": 158,
+          "y": 75
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_LOW_START_HZ"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_0"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 56,
+          "x": 366,
+          "y": 97.953
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_NOMINAL_FREQ"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_3"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 62,
+          "x": 666.953,
+          "y": 128.031
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_HIGH_MAX_POWER"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_6"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 62,
+          "x": 666.953,
+          "y": 99
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_HIGH_STOP_HZ"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_4"
+        },
+        "position": {
+          "height": 25.04,
+          "width": 62,
+          "x": 666.953,
+          "y": 70.031
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "value": "{view.params.path}"
+                },
+                "tagPath": "{value}/DROOP_HIGH_START_HZ"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 131.04,
+          "x": 34,
+          "y": 137
+        },
+        "props": {
+          "text": "Low Max Power"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 20,
+          "width": 106,
+          "x": 34,
+          "y": 107
+        },
+        "props": {
+          "text": "Low Max Hz"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 20,
+          "width": 106,
+          "x": 34,
+          "y": 79
+        },
+        "props": {
+          "text": "Low Min Hz"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 20,
+          "width": 160,
+          "x": 332,
+          "y": 78.031
+        },
+        "props": {
+          "text": "Nominal Frequency"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 20,
+          "width": 131.04,
+          "x": 534.953,
+          "y": 74.031
+        },
+        "props": {
+          "text": "High Min Hz"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 20,
+          "width": 131.04,
+          "x": 534.953,
+          "y": 103
+        },
+        "props": {
+          "text": "High Max Hz"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 131.04,
+          "x": 536,
+          "y": 131
+        },
+        "props": {
+          "text": "High Max Power"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 20,
+          "width": 455,
+          "x": 12,
+          "y": 11
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "FREQUENCY-WATT CURVE SETTINGS"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "yMA7p6lZ",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": ""
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 44,
+          "width": 88,
+          "x": 346.03125,
+          "y": 532
+        },
+        "props": {
+          "text": "Close"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

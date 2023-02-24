@@ -1,0 +1,124 @@
+{
+  "custom": {},
+  "params": {
+    "path": ""
+  },
+  "propConfig": {
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "25px"
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          },
+          "text": "Enter New Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{view.params.path}"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# update the value\n\tvalue \u003d self.getSibling(\"NumericEntryField\").props.value\n\tpath \u003d self.view.params.path\n\tsystem.tag.writeBlocking([path], [value])\n\t\n\t# trigger the detail pane to update\n\tsystem.perspective.sendMessage(\"TagSelected\", payload \u003d {\"path\":path})\n\t\n\t# rewrite the cancel button to \"close\"\n\tself.getSibling(\"Button_0\").props.text\u003d\"Close\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "44px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FF4747"
+          },
+          "text": "Apply"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "okyWSV26",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": ""
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "basis": "44px"
+        },
+        "props": {
+          "text": "Cancel"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 240,
+      "width": 337
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CodeLegendImage"
+        },
+        "position": {
+          "height": 138.01,
+          "width": 309.03,
+          "x": 11,
+          "y": 82
+        },
+        "props": {
+          "source": "/system/images/Screenshot 2022-06-15 090209.png"
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "Disconnected_RedIcon_0",
+          "visible": 1
+        },
+        "position": {
+          "height": 30,
+          "width": 30.03,
+          "x": 161.85,
+          "y": 44.03
+        },
+        "props": {
+          "color": "#D33D3D",
+          "path": "material/brightness_1"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "SiteConn_Label_1"
+        },
+        "position": {
+          "height": 31.99,
+          "width": 145.03,
+          "x": 15.797,
+          "y": 42.044
+        },
+        "props": {
+          "text": "Site Disconnected",
+          "textStyle": {
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "SiteConn_Label_0"
+        },
+        "position": {
+          "height": 31.99,
+          "width": 149.94,
+          "x": 16.047,
+          "y": 11.023000000000003
+        },
+        "props": {
+          "text": "Site Connected",
+          "textStyle": {
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Connected_GrnIcon_0",
+          "visible": "Connected"
+        },
+        "position": {
+          "height": 30,
+          "width": 30.03,
+          "x": 161.85,
+          "y": 11.982999999999997
+        },
+        "props": {
+          "color": "#00AC00",
+          "path": "material/brightness_1"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

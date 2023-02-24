@@ -1,0 +1,604 @@
+{
+  "custom": {},
+  "params": {
+    "path": ""
+  },
+  "propConfig": {
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 450,
+      "width": 210
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "Q0IAnJ8q",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": ""
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 44,
+          "width": 88,
+          "x": 58,
+          "y": 393
+        },
+        "props": {
+          "text": "Close"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 20,
+          "width": 84,
+          "x": 10,
+          "y": 10
+        },
+        "props": {
+          "style": {
+            "fontSize": 20
+          },
+          "text": "Phase A"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 10,
+          "y": 42
+        },
+        "props": {
+          "text": "I"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 42
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_0"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 68
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 6,
+          "y": 68
+        },
+        "props": {
+          "text": "V"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 94
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 4,
+          "y": 94
+        },
+        "props": {
+          "text": "W"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 109,
+          "y": 42
+        },
+        "props": {
+          "text": "Limit"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 42
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 79,
+          "y": 68
+        },
+        "props": {
+          "text": "Reference"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_0"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 68
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 94
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 109,
+          "y": 94
+        },
+        "props": {
+          "text": "Limit"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_2"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 214
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_3"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 188
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 109,
+          "y": 214
+        },
+        "props": {
+          "text": "Limit"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 109,
+          "y": 162
+        },
+        "props": {
+          "text": "Limit"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_4"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 162
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 79,
+          "y": 188
+        },
+        "props": {
+          "text": "Reference"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_2"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 162
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_3"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 188
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_4"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 214
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 20,
+          "width": 84,
+          "x": 10,
+          "y": 130
+        },
+        "props": {
+          "style": {
+            "fontSize": 20
+          },
+          "text": "Phase B"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 10,
+          "y": 162
+        },
+        "props": {
+          "text": "I"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_11"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 6,
+          "y": 188
+        },
+        "props": {
+          "text": "V"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_12"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 4,
+          "y": 214
+        },
+        "props": {
+          "text": "W"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 334
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 308
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_13"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 109,
+          "y": 334
+        },
+        "props": {
+          "text": "Limit"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_14"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 109,
+          "y": 282
+        },
+        "props": {
+          "text": "Limit"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_7"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 152,
+          "y": 282
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_15"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 79,
+          "y": 308
+        },
+        "props": {
+          "text": "Reference"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 282
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 308
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_7"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 20,
+          "y": 334
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_16"
+        },
+        "position": {
+          "height": 20,
+          "width": 84,
+          "x": 10,
+          "y": 250
+        },
+        "props": {
+          "style": {
+            "fontSize": 20
+          },
+          "text": "Phase C"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_17"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 10,
+          "y": 282
+        },
+        "props": {
+          "text": "I"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_18"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 6,
+          "y": 308
+        },
+        "props": {
+          "text": "V"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_19"
+        },
+        "position": {
+          "height": 20,
+          "width": 12,
+          "x": 4,
+          "y": 334
+        },
+        "props": {
+          "text": "W"
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

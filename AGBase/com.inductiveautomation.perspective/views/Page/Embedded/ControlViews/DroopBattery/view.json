@@ -1,0 +1,2388 @@
+{
+  "custom": {},
+  "params": {
+    "name": "value",
+    "path": "value"
+  },
+  "propConfig": {
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "name": "HEARTBEAT"
+        },
+        "meta": {
+          "name": "Label_27"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 18,
+          "y": 43.5
+        },
+        "propConfig": {
+          "custom.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/HB_GOOD"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.state}"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "HMIs/GreenBackground"
+                    },
+                    {
+                      "input": false,
+                      "output": "HMIs/RedBackground"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({this.custom.state}, {this.custom.name}+\" OK\", {this.custom.name}+\" FAULTED\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 34,
+          "width": 117,
+          "x": 18,
+          "y": 10
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 34,
+          "width": 117,
+          "x": 18,
+          "y": 257
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "PCC"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 28,
+          "y": 323.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.path}"
+              },
+              "transforms": [
+                {
+                  "code": "\tif system.tag.getConfiguration(value, False)[0][\u0027typeId\u0027] \u003d\u003d \"AutoGrid/PVBattery\":\n\t\treturn value+\"/PCCMeter/LOAD_POWER_ACTUAL\"\n\telse:\n\t\treturn value+\"/PCCMeter/GEN_POWER_ACTUAL\"",
+                  "type": "script"
+                },
+                {
+                  "expression": "tag({value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_2"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 28,
+          "y": 345
+        },
+        "props": {
+          "numberFormat": "0.00",
+          "value": -1.5
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_0"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 164,
+          "y": 364
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/FREQUENCY"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#.####"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_12"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 164,
+          "y": 343.5
+        },
+        "props": {
+          "numberFormat": "0.00",
+          "value": 0.98
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_3"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 164,
+          "y": 323.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/MainBreaker/Nominal_kV"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 114,
+          "y": 325
+        },
+        "props": {
+          "text": "kW"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 114,
+          "y": 346
+        },
+        "props": {
+          "text": "kVAR"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 248,
+          "y": 364
+        },
+        "props": {
+          "text": "Hz"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_28"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 230,
+          "y": 343.5
+        },
+        "props": {
+          "text": "PF"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 230,
+          "y": 323.5
+        },
+        "props": {
+          "text": "kV"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton_0"
+        },
+        "position": {
+          "height": 25,
+          "width": 219.00000000000003,
+          "x": 28,
+          "y": 290.5
+        },
+        "propConfig": {
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/MainBreaker/BRKR_CLOSED"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": 1
+                    },
+                    {
+                      "input": false,
+                      "output": 0
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "controlValue": 0,
+          "orientation": "row",
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "#47FF47",
+                "classes": ""
+              },
+              "text": "Open",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FF2709",
+                "classes": ""
+              },
+              "text": "Closed",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "yMA7p6lZ",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewParams": {
+                  "name": "{view.params.name}",
+                  "path": "{view.params.path}"
+                },
+                "viewPath": "Popups/Droop"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "height": 25,
+          "width": 250,
+          "x": 892,
+          "y": 586
+        },
+        "props": {
+          "text": "Manage Frequency-Watt Settings"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_3"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 891,
+          "y": 667
+        },
+        "props": {
+          "format": "#.00",
+          "value": ".99"
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_4"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 891,
+          "y": 627
+        },
+        "props": {
+          "format": "#.00",
+          "value": 1
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tif self.props.selected:\n\t\tsystem.tag.writeBlocking([self.view.params.path+\"/DROOP_SPT_MODE\"], [2])\n\telse:\n\t\tsystem.tag.writeBlocking([self.view.params.path+\"/DROOP_SPT_MODE\"], [0])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "ToggleSwitch_2"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 542
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/DROOP_SPT_MODE"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 2,
+                      "output": true
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "AGC Mode"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tif self.props.selected:\n\t\tsystem.tag.writeBlocking([self.view.params.path+\"/DROOP_SPT_MODE\"], [1])\n\telse:\n\t\tsystem.tag.writeBlocking([self.view.params.path+\"/DROOP_SPT_MODE\"], [0])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "ToggleSwitch_6"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 582
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/DROOP_SPT_MODE"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": true
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Droop Mode"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_7"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 662
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Power Factor Corr."
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_8"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 622
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Fixed Power Factor"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_1"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 502
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Coordinated Mode"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 25,
+          "width": 150,
+          "x": 892,
+          "y": 509
+        },
+        "props": {
+          "text": "Manage Target"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_0"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 462
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Schedule Mode"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 25,
+          "width": 150,
+          "x": 892,
+          "y": 469
+        },
+        "props": {
+          "text": "Manage Schedule"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 422
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Active Power Limit"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_2"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 891,
+          "y": 427
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 34,
+          "width": 338,
+          "x": 566,
+          "y": 380
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "IEEE 1547 Control Modes"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 20,
+          "width": 216,
+          "x": 566,
+          "y": 165
+        },
+        "props": {
+          "text": "PCS Real Power Ramp Rate"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_1"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 781,
+          "y": 160
+        },
+        "props": {
+          "value": 9999
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Reactive_ovr"
+        },
+        "position": {
+          "height": 36,
+          "width": 205,
+          "x": 858,
+          "y": 127
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Override"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 20,
+          "width": 216,
+          "x": 566,
+          "y": 135
+        },
+        "props": {
+          "text": "PCS Reactive Power Setpoint"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_0"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 781,
+          "y": 130
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "../Reactive_ovr.props.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_3"
+        },
+        "position": {
+          "height": 36,
+          "width": 205,
+          "x": 858,
+          "y": 97
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Override"
+          },
+          "selected": true
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Spt_ovr"
+        },
+        "position": {
+          "height": 36,
+          "width": 205,
+          "x": 858,
+          "y": 97
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Override"
+          },
+          "selected": true,
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 20,
+          "width": 216,
+          "x": 566,
+          "y": 105
+        },
+        "props": {
+          "text": "PCS Real Power Setpoint"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 781,
+          "y": 100
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "../Spt_ovr.props.selected"
+              },
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SET_POINT_ABS"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton"
+        },
+        "position": {
+          "height": 39,
+          "width": 170,
+          "x": 568,
+          "y": 53.5
+        },
+        "propConfig": {
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/REMOTE_STATUS"
+              },
+              "type": "tag"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/REMOTE_STATUS"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": 1
+                    },
+                    {
+                      "input": false,
+                      "output": 0
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "orientation": "row",
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FFF809",
+                "classes": ""
+              },
+              "text": "Local",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FF2709",
+                "classes": ""
+              },
+              "text": "Remote",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 34,
+          "width": 338,
+          "x": 566,
+          "y": 10
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "Controls"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "name": "CONTROLLER"
+        },
+        "meta": {
+          "name": "Label_30"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 18,
+          "y": 63.5
+        },
+        "propConfig": {
+          "custom.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/CONTROLLER_HEALTH"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.state}"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "HMIs/GreenBackground"
+                    },
+                    {
+                      "input": false,
+                      "output": "HMIs/RedBackground"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({this.custom.state}, {this.custom.name}+\" OK\", {this.custom.name}+\" FAULTED\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_15"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 164,
+          "y": 447.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/AssetSettings/META_MAX_CHARGE"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_32"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 230,
+          "y": 447.5
+        },
+        "props": {
+          "text": "LOL"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_10"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 164,
+          "y": 427.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/AssetSettings/META_MAX_DISCHARGE"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_17"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 230,
+          "y": 427.5
+        },
+        "props": {
+          "text": "HOL"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_15"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 114,
+          "y": 450
+        },
+        "props": {
+          "text": "SoC"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_16"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 114,
+          "y": 429
+        },
+        "props": {
+          "text": "%SoC"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_18"
+        },
+        "position": {
+          "height": 34,
+          "width": 117,
+          "x": 18,
+          "y": 391
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "BESS"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_8"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 28,
+          "y": 449
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SOE_ABS_ACTUAL"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_9"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 48,
+          "y": 427.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " (tag({view.params.path}+\"/SOE_ABS_ACTUAL\")/ tag({view.params.path}+\"/AssetSettings/META_USABLE_ENERGY\")) * 100.0"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_19"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 238,
+          "y": 44.5
+        },
+        "props": {
+          "text": "FLEX SETPOINT"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_11"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 419,
+          "y": 44.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SET_POINT_ABS"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_20"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 505,
+          "y": 44.5
+        },
+        "props": {
+          "text": "kW"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_21"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 505,
+          "y": 74.5
+        },
+        "props": {
+          "text": "kW"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_16"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 419,
+          "y": 74.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SET_POINT_CONF_ABS"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_22"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 238,
+          "y": 74.5
+        },
+        "props": {
+          "text": "SETPOINT FEEDBACK"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_23"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 238,
+          "y": 104.5
+        },
+        "props": {
+          "text": "BATTERY ROOM TEMP"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_17"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 439,
+          "y": 104.5
+        },
+        "props": {
+          "numberFormat": "0.0",
+          "value": ""
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_24"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 505,
+          "y": 104.5
+        },
+        "props": {
+          "text": "F"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_25"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 505,
+          "y": 134.5
+        },
+        "props": {
+          "text": "F"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_18"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 439,
+          "y": 134.5
+        },
+        "props": {
+          "numberFormat": "0.0",
+          "value": ""
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_26"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 238,
+          "y": 134.5
+        },
+        "props": {
+          "text": "BATTERY ENC. TEMP"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_33"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 238,
+          "y": 164.5
+        },
+        "props": {
+          "text": "STATE OF CHARGE"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_19"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 419,
+          "y": 164.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SOE_ABS_ACTUAL"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_34"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 505,
+          "y": 164.5
+        },
+        "props": {
+          "text": "kWh"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_20"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 419,
+          "y": 194.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/HB_IN"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_35"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 238,
+          "y": 194.5
+        },
+        "props": {
+          "text": "HEARTBEAT"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "name": "LIGHT ALARM"
+        },
+        "meta": {
+          "name": "Label_36"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 18,
+          "y": 83.5
+        },
+        "propConfig": {
+          "custom.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/BESS_LIGHT_ALARM"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.state}"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "HMIs/GreenBackground"
+                    },
+                    {
+                      "input": false,
+                      "output": "HMIs/RedBackground"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({this.custom.state}, {this.custom.name}+\" OK\", {this.custom.name}+\" FAULTED\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "name": "MED. ALARM"
+        },
+        "meta": {
+          "name": "Label_37"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 18,
+          "y": 103.5
+        },
+        "propConfig": {
+          "custom.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/BESS_MED_ALARM"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.state}"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "HMIs/GreenBackground"
+                    },
+                    {
+                      "input": false,
+                      "output": "HMIs/RedBackground"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({this.custom.state}, {this.custom.name}+\" OK\", {this.custom.name}+\" FAULTED\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "name": "HEAVY ALARM"
+        },
+        "meta": {
+          "name": "Label_38"
+        },
+        "position": {
+          "height": 20,
+          "width": 199,
+          "x": 18,
+          "y": 123.5
+        },
+        "propConfig": {
+          "custom.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/BESS_HEAVY_ALARM"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.state}"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "HMIs/GreenBackground"
+                    },
+                    {
+                      "input": false,
+                      "output": "HMIs/RedBackground"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({this.custom.state}, {this.custom.name}+\" OK\", {this.custom.name}+\" FAULTED\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch_9"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 702
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "Volt-VAR Mode"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "xh6bn+RD",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewParams": {
+                  "name": "{view.params.name}",
+                  "path": "{view.params.path}"
+                },
+                "viewPath": "Popups/VVCurve"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_2"
+        },
+        "position": {
+          "height": 25,
+          "width": 250,
+          "x": 892,
+          "y": 706
+        },
+        "props": {
+          "text": "Manage Volt-VAR Curves"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "height": 200,
+          "width": 300,
+          "y": 597
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.path}"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn system.tag.getConfiguration(value, False)[0][\u0027typeId\u0027] \u003d\u003d \"AutoGrid/PVBattery\"",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.path": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.path}+\"/PV\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Embedded/ControlViews/PVPanel"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tif self.props.selected:\n\t\tsystem.tag.writeBlocking([self.view.params.path+\"/DROOP_SPT_MODE\"], [3])\n\telse:\n\t\tsystem.tag.writeBlocking([self.view.params.path+\"/DROOP_SPT_MODE\"], [0])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "ToggleSwitch_10"
+        },
+        "position": {
+          "height": 36,
+          "width": 215,
+          "x": 666,
+          "y": 742
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/DROOP_SPT_MODE"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 3,
+                      "output": true
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "color": {
+            "selected": "#FF0000",
+            "unselected": "#47FF47"
+          },
+          "label": {
+            "text": "PV Smoothing"
+          },
+          "style": {
+            "classes": "Base/Black"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_5"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 427
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_6"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 467
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_7"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 507
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_8"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 547
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_9"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 587
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_10"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 627
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_11"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 667
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_12"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 707
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_13"
+        },
+        "position": {
+          "height": 25,
+          "width": 30,
+          "x": 631,
+          "y": 747
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_39"
+        },
+        "position": {
+          "height": 20,
+          "width": 58.00000000000001,
+          "x": 566,
+          "y": 429
+        },
+        "props": {
+          "text": "Priority"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_40"
+        },
+        "position": {
+          "height": 20,
+          "width": 216,
+          "x": 566,
+          "y": 195
+        },
+        "props": {
+          "text": "PCS Reactive Power Ramp R."
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_14"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 781,
+          "y": 190
+        },
+        "props": {
+          "value": 9999
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_41"
+        },
+        "position": {
+          "height": 20,
+          "width": 216,
+          "x": 566,
+          "y": 225
+        },
+        "props": {
+          "text": "Voltage Reference"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_15"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 781,
+          "y": 220
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/MainBreaker/Nominal_kV"
+              },
+              "transforms": [
+                {
+                  "expression": "{value}*1000",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField_16"
+        },
+        "position": {
+          "height": 25,
+          "width": 65,
+          "x": 781,
+          "y": 250
+        },
+        "props": {
+          "format": "0,0.00",
+          "value": 1
+        },
+        "type": "ia.input.numeric-entry-field"
+      },
+      {
+        "meta": {
+          "name": "Label_42"
+        },
+        "position": {
+          "height": 20,
+          "width": 216,
+          "x": 566,
+          "y": 255
+        },
+        "props": {
+          "text": "CosPhi Reference"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "LedDisplay_21"
+        },
+        "position": {
+          "height": 20,
+          "width": 80,
+          "x": 28,
+          "y": 469.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/GEN_POWER_ACTUAL"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_43"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 114,
+          "y": 471
+        },
+        "props": {
+          "text": "kW"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "OftcM4fD",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Per Phase Data and Limits",
+                "type": "open",
+                "viewParams": {
+                  "path": "{view.params.path}"
+                },
+                "viewPath": "Popups/PhaseData"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_3",
+          "visible": false
+        },
+        "position": {
+          "height": 25,
+          "width": 129,
+          "x": 566,
+          "y": 289
+        },
+        "props": {
+          "text": "Per Phase Data"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView_0"
+        },
+        "position": {
+          "height": 100,
+          "width": 150,
+          "x": 38,
+          "y": 500
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.path}"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn system.tag.getConfiguration(value, False)[0][\u0027typeId\u0027] \u003d\u003d \"AutoGrid/PVBattery\"",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.path"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Embedded/ControlViews/SiteLoadPanel"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,472 @@
+{
+  "custom": {},
+  "params": {
+    "path": ""
+  },
+  "propConfig": {
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "DLWK0Xf4",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": "Popups/TenantSettings"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 360,
+          "y": 359
+        },
+        "props": {
+          "text": "Close"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "TextField_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 319
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/DROMS_Meta_API_Password"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_3"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 285
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/DROMS_Meta_API_Username"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_4"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 251
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/DROMS_API_URL"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_6"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 217
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/DROMS_API_Password"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_5"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 183
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/DROMS_API_Username"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextArea"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 149.094
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/Flex_FERM_API_Token"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-area"
+      },
+      {
+        "meta": {
+          "name": "TextField_1"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 115
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/Flex_TS_API_Password"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_0"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 80
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/Flex_TS_API_Username"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 32,
+          "width": 150,
+          "x": 42,
+          "y": 79.094
+        },
+        "props": {
+          "text": "Timeseries API User"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 32,
+          "width": 150,
+          "x": 42,
+          "y": 114.094
+        },
+        "props": {
+          "text": "Timeseries API Pass"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 32,
+          "width": 179,
+          "x": 13,
+          "y": 150.094
+        },
+        "props": {
+          "text": "FER Manager API Token"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 32,
+          "width": 126,
+          "x": 66,
+          "y": 250.094
+        },
+        "props": {
+          "text": "DROMS API URI"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 32,
+          "width": 146,
+          "x": 46,
+          "y": 284.094
+        },
+        "props": {
+          "text": "FER META API User"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 32,
+          "width": 146,
+          "x": 46,
+          "y": 318.094
+        },
+        "props": {
+          "text": "FER META API Pass"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 32,
+          "width": 133,
+          "x": 59,
+          "y": 182.094
+        },
+        "props": {
+          "text": "DROMS API User"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 32,
+          "width": 132,
+          "x": 60,
+          "y": 216.094
+        },
+        "props": {
+          "text": "DROMS API Pass"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 97,
+          "x": 95,
+          "y": 44.094
+        },
+        "props": {
+          "text": "Flex API URI"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "height": 32,
+          "width": 500,
+          "x": 204,
+          "y": 45
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "[default]AutoGrid/TenantCredentials/{path}/Flex_API_URL"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_11"
+        },
+        "position": {
+          "height": 32,
+          "width": 582,
+          "x": 208,
+          "y": 5.094000000000001
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Editing \"+{view.params.path}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

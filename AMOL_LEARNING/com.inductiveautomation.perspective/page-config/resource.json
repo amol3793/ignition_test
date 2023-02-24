@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "autogrid",
+      "timestamp": "2022-09-26T13:53:57Z"
+    },
+    "lastModificationSignature": "72fe37ae7b98276080baaacb2924e78a66f08fa09a7f612009661032d646e7cb"
+  }
+}

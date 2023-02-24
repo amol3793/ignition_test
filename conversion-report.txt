@@ -1,0 +1,46 @@
+Starting conversion: 20220210:11.32.12
+Conversion finished. Elapsed time: 21 ms
+Starting conversion: 20220210:14.33.18
+Conversion finished. Elapsed time: 27 ms
+Starting conversion: 20220210:17.06.46
+Conversion finished. Elapsed time: 60 ms
+Starting conversion: 20220221:14.09.57
+Conversion finished. Elapsed time: 19 ms
+Starting conversion: 20220505:13.45.30
+Conversion finished. Elapsed time: 17 ms
+Starting conversion: 20220729:08.39.29
+Conversion finished. Elapsed time: 19 ms
+Starting conversion: 20220905:18.47.29
+Conversion finished. Elapsed time: 14 ms
+Starting conversion: 20220915:17.02.26
+Conversion finished. Elapsed time: 17 ms
+Starting conversion: 20220917:14.29.02
+Conversion finished. Elapsed time: 20 ms
+Starting conversion: 20220926:19.14.40
+Conversion finished. Elapsed time: 15 ms
+Starting conversion: 20221003:12.50.25
+Conversion finished. Elapsed time: 129 ms
+Starting conversion: 20221005:11.22.42
+Conversion finished. Elapsed time: 245 ms
+Starting conversion: 20221022:08.06.02
+Conversion finished. Elapsed time: 228 ms
+Starting conversion: 20221129:06.25.43
+Conversion finished. Elapsed time: 96 ms
+Starting conversion: 20221213:09.42.00
+Conversion finished. Elapsed time: 94 ms
+Starting conversion: 20221221:08.51.04
+Conversion finished. Elapsed time: 42 ms
+Starting conversion: 20230126:09.53.02
+Conversion finished. Elapsed time: 42 ms
+Starting conversion: 20230127:17.30.46
+Conversion finished. Elapsed time: 14 ms
+Starting conversion: 20230202:09.50.46
+Conversion finished. Elapsed time: 18 ms
+Starting conversion: 20230204:10.59.59
+Conversion finished. Elapsed time: 138 ms
+Starting conversion: 20230213:12.42.28
+Conversion finished. Elapsed time: 174 ms
+Starting conversion: 20230220:09.45.52
+Conversion finished. Elapsed time: 154 ms
+Starting conversion: 20230224:10.40.40
+Conversion finished. Elapsed time: 20 ms

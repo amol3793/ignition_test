@@ -1,0 +1,5320 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1296
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Button_8"
+        },
+        "position": {
+          "height": 610,
+          "width": 469
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FFCCFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_30"
+        },
+        "position": {
+          "height": 32,
+          "width": 271.45,
+          "x": 89.3,
+          "y": 5.27
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Telemetered Values"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_33"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9634,
+          "y": 135.276
+        },
+        "props": {
+          "Frequency": "Amps:",
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Frequency"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_35"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9634,
+          "y": 107.276
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Volts:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_37"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 126.30000000000001,
+          "x": 11.9634,
+          "y": 79.2756
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Amps:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_38"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.9,
+          "y": 81.28
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredAmps.Enabled\u0027) \u003d True  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredAmps\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_39"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9634,
+          "y": 163.276
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Real Power:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_41"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.3,
+          "x": 12.6634,
+          "y": 191.276
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Reactive Power:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_43"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9634,
+          "y": 219.276
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Solar Irradiance:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_45"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9634,
+          "y": 247.276
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Temperature:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_47"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9165,
+          "y": 304.057
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Wind Speed:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_49"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9165,
+          "y": 362.034
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Turbine Status:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_51"
+        },
+        "position": {
+          "height": 20,
+          "width": 126.30000000000001,
+          "x": 11.9165,
+          "y": 390.034
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Inverter Status:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_53"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 142.67000000000002,
+          "x": -2.96388,
+          "y": 420.245
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Custom Boolean #1:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_55"
+        },
+        "position": {
+          "height": 20,
+          "width": 142.67000000000002,
+          "x": -2.96388,
+          "y": 448.245
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Custom Boolean #2:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_57"
+        },
+        "position": {
+          "height": 20,
+          "width": 142.67000000000002,
+          "x": -2.96388,
+          "y": 476.245
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Custom Integer #1:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_59"
+        },
+        "position": {
+          "height": 20,
+          "width": 142.67000000000002,
+          "x": -2.96388,
+          "y": 504.245
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Custom Integer #2:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_61"
+        },
+        "position": {
+          "height": 20,
+          "width": 142.67000000000002,
+          "x": -2.96388,
+          "y": 532.245
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Custom Float #1:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_63"
+        },
+        "position": {
+          "height": 20,
+          "width": 142.65999999999997,
+          "x": -2.86988,
+          "y": 560.511
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Custom Float #2:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_40"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.89,
+          "y": 109.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredVolts.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredVolts\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_42"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.89,
+          "y": 137.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredFrequency.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredFrequency\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_44"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.89,
+          "y": 165.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredRealPower.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredRealPower\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_46"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.89,
+          "y": 193.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredReactivePower.enabled\u0027)   || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredReactivePower\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_48"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.89,
+          "y": 221.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredSolarIrradiance.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredSolarIrradiance\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_50"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.89,
+          "y": 249.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredTemperature.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredTemperature\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_52"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.85,
+          "y": 306.08
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredWindSpeed.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/measuredWindSpeed\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_54"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.85,
+          "y": 364.06
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/monitoredTurbineStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/monitoredTurbineStatus\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_56"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 145.85,
+          "y": 392.06
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": " tag({session.custom.AssetPath} + \u0027/telemetryValues/monitoredInverterStatus.Enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/monitoredInverterStatus\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_58"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.15,
+          "x": 146.72,
+          "y": 421.24
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customBool1.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/customBool1\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_60"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 146.71,
+          "y": 449.27
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customBool2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/customBool2\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_62"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 146.71,
+          "y": 478.27
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customInt1.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/customInt1\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_64"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 146.71,
+          "y": 506.27
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customInt2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/customInt2\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_65"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 146.71,
+          "y": 534.27
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customFloat1.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/customFloat1\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_66"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 146.71,
+          "y": 562.27
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customFloat2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/telemetryValues/customFloat2\u0027"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Button_9"
+        },
+        "position": {
+          "height": 610,
+          "width": 339,
+          "x": 477
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#CCCCFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_31"
+        },
+        "position": {
+          "height": 32,
+          "width": 271.45,
+          "x": 510.8,
+          "y": 5.066875
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Direct Dispatch Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 753.5,
+          "y": 128.00400000000002
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath} + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath} + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchCommandTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1,
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_67"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 268.00000000000006,
+          "x": 480.46,
+          "y": 128.26999999999998
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Flex Dispatch Command"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Button_10"
+        },
+        "position": {
+          "height": 202,
+          "width": 452,
+          "x": 823
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#CCCCFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Progress_0"
+        },
+        "position": {
+          "height": 18.00999999999999,
+          "width": 45,
+          "x": 1021.02,
+          "y": 48
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath} + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath} + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchCommandTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1,
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_68"
+        },
+        "position": {
+          "height": 35,
+          "width": 168.00000000000006,
+          "x": 847.983,
+          "y": 40.25
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Flex Dispatch Request Child Asset:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_32"
+        },
+        "position": {
+          "height": 32,
+          "width": 271.45,
+          "x": 912.3,
+          "y": -0.73
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Aggregated Dispatch Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_69"
+        },
+        "position": {
+          "height": 35,
+          "width": 168.00000000000006,
+          "x": 847.983,
+          "y": 118.25
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Flex Dispatch Command Parent Asset"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_1"
+        },
+        "position": {
+          "height": 18.00999999999999,
+          "width": 45,
+          "x": 1021.02,
+          "y": 126
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "   tag(tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027.name\u0027) + \u0027/\u0027 + tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027/Parameters.flex_dispatchCommandTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1,
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_70"
+        },
+        "position": {
+          "height": 35,
+          "width": 143,
+          "x": 874.91,
+          "y": 78.25
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Parent To Dispatch:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "height": 31,
+          "width": 249,
+          "x": 1022.5,
+          "y": 82.25
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "deferUpdates": false,
+          "enabled": false,
+          "rejectUpdatesWhileFocused": false,
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_71"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 264.00000000000006,
+          "x": 484.46,
+          "y": 159.27
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Current Dispatch Start Command Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_2"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 753.5,
+          "y": 159.004
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "((tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1) \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 0)) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.max": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchValue\u0027"
+              },
+              "type": "tag"
+            }
+          },
+          "props.min": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchRTNValue\u0027"
+              },
+              "type": "tag"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/startDispatch\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_72"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.01,
+          "x": 500.792,
+          "y": 317.54
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Discrete Dispatch Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_3"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 749.684,
+          "y": 317.277
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchValue\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FFFFFF"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_73"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.0200000000001,
+          "x": 501.232,
+          "y": 343.68
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Discrete RTN Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_4"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 750.214,
+          "y": 343.41
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchRTNValue\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FFFFFF"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_74"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.01,
+          "x": 504.943,
+          "y": 438.641
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide",
+            "textDecoration": "underline"
+          },
+          "text": "For 3-Wire Dispatch"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_75"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.01,
+          "x": 504,
+          "y": 290.666
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide",
+            "textDecoration": "underline"
+          },
+          "text": "Configured Dispatch \u0026 RTN Values"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_76"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 264,
+          "x": 484.49,
+          "y": 464
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Current Dispatch Stop Command Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_7"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 753.53,
+          "y": 463.739
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.max": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerRTNValue\u0027 "
+              },
+              "type": "expr"
+            }
+          },
+          "props.min": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchValue\u0027 "
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/dispatch/stopDispatch\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_77"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.0100000000001,
+          "x": 504.68,
+          "y": 504.748
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide",
+            "textDecoration": "underline"
+          },
+          "text": "Controller Feedback"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_78"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 80,
+          "x": 480.453125,
+          "y": 532.248125
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Start FB"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_79"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 80,
+          "x": 480.453125,
+          "y": 558.378125
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Stop FB"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 20,
+          "x": 562.703125,
+          "y": 558.113125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasControllerDispatchFeedback\u0027) \u003d 1)  \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1) \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.max": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchValue\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.min": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchRTNValue\u0027 "
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/stopDispatchFeedback\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Button_11"
+        },
+        "position": {
+          "height": 151.99999999999997,
+          "width": 453,
+          "x": 823,
+          "y": 207.802
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#CCCCFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_34"
+        },
+        "position": {
+          "height": 32,
+          "width": 334,
+          "x": 891.3,
+          "y": 205.536
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Dispatch Confirmation \u0026 Alarms"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_80"
+        },
+        "position": {
+          "height": 35,
+          "width": 168.00000000000006,
+          "x": 847.983,
+          "y": 158.266
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Flex Dispatch Setpoint Parent Asset"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_8"
+        },
+        "position": {
+          "height": 18.00999999999999,
+          "width": 45,
+          "x": 1021.02,
+          "y": 166.016
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "   tag(tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027.name\u0027) + \u0027/\u0027 + tag(tag({session.custom.AssetPath} + \u0027/Parameters.config_aggregateDispatchParentPath\u0027) + \u0027/Parameters.flex_dispatchSetpointTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_81"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 264.00000000000006,
+          "x": 484.483,
+          "y": 253.27
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Current Dispatch Setpoint Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_9"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 753.523,
+          "y": 253.004
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isAnalogDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/dispatch/startDispatch\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_82"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 268.00000000000006,
+          "x": 480.46,
+          "y": 222.27
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Flex Dispatch Setpoint:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_10"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 753.5,
+          "y": 222.004
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isAnalogDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath} + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath} + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchSetpointTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_83"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.0200000000001,
+          "x": 500.81,
+          "y": 395.68
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Manual Analog Dispatch RTN Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_11"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 749.792,
+          "y": 395.41
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_analogDispatchManualRTNValue\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FFFFFF"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Progress_12"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 749.262,
+          "y": 369.277
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_analogDispatchManualDispatchValue\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FFFFFF"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_84"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.01,
+          "x": 500.37,
+          "y": 369.54
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Manual Analog Dispatch Value"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_85"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 80,
+          "x": 480.453125,
+          "y": 584.378125
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Setpoint FB"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_13"
+        },
+        "position": {
+          "height": 20,
+          "width": 20,
+          "x": 562.703125,
+          "y": 584.113125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasControllerDispatchFeedback\u0027) \u003d 1)  \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_isAnalogDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.max": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerRTNValue\u0027 "
+              },
+              "type": "expr"
+            }
+          },
+          "props.min": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchValue\u0027 "
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/setpointDispatchFeedback\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_86"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.853,
+          "y": 306.081
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredWindSpeed.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredWindSpeedKPHTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_87"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.9,
+          "y": 249.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredTemperature.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredTemperatureCelciusTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_88"
+        },
+        "position": {
+          "height": 19.99999999999997,
+          "width": 146.89000000000001,
+          "x": 224.98,
+          "y": 247.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredTemperatureCelciusTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_89"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89,
+          "x": 224.93,
+          "y": 304.06
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredWindSpeedKPHTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_90"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.98,
+          "y": 219.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredSolarIrradianceTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_91"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.9,
+          "y": 221.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredSolarIrradiance.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredSolarIrradianceTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_92"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 225.77,
+          "y": 191.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredReactivePowerTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_93"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.9,
+          "y": 193.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredReactivePower.enabled\u0027)   || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredReactivePowerTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_94"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.98,
+          "y": 163.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredRealPowerTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_95"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.9,
+          "y": 165.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredRealPower.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredRealPowerTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_36"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.98,
+          "y": 135.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredFrequencyTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "Frequency": "Amps:",
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_96"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.9,
+          "y": 137.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredFrequency.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredFrequencyTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_97"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.98,
+          "y": 107.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredVoltsTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_98"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.9,
+          "y": 109.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredVolts.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredVoltsTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_99"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 146.89000000000001,
+          "x": 224.98,
+          "y": 79.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredAmpsTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_100"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.913,
+          "y": 81.275
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredAmps.Enabled\u0027) \u003d True  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredAmpsTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_101"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 560.51
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_customFloat2Tag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_102"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 376.775,
+          "y": 562.269
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customFloat2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_customFloat2Tag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_103"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 532.25
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_customFloat1Tag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_104"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 376.775,
+          "y": 534.269
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customFloat1.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_customFloat1Tag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_105"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 504.25
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_customInt2Tag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_106"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 376.775,
+          "y": 506.269
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customInt2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_customInt2Tag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_107"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 476.25
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_customInt1Tag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_108"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 376.775,
+          "y": 478.269
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customInt1.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_customInt1Tag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_109"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 448.25
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_customBool2Tag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_110"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 376.775,
+          "y": 450.269
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customBool2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_customBool2Tag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_111"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 420.25
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_customBool1Tag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_112"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 376.788,
+          "y": 422.244
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customBool1.enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_customBool1Tag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_113"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 390.03
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_monitoredInverterStatusTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_114"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.775,
+          "y": 392.058
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": " tag({session.custom.AssetPath} + \u0027/telemetryValues/monitoredInverterStatus.Enabled\u0027)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_monitoredInverterStatusTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_115"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 224.84,
+          "y": 362.03
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_monitoredTurbineStatusTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_116"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.775,
+          "y": 364.058
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/monitoredTurbineStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_monitoredTurbineStatusTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_117"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.01,
+          "x": 12.8516,
+          "y": 47.4
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldHeadingLabel",
+            "textDecoration": "underline"
+          },
+          "text": "Controller Values"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_118"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 126,
+          "x": 306.584,
+          "y": 47.4
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldHeadingLabel",
+            "textDecoration": "underline"
+          },
+          "text": "Kafka Values"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_119"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89,
+          "x": 224.93,
+          "y": 276.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredTemperatureFarenheitTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_120"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.853,
+          "y": 278.3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredTemperature.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredTemperatureFarenheitTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_121"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89,
+          "x": 224.93,
+          "y": 333.01
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_measuredWindSpeedMPHTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_122"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 375.853,
+          "y": 335.034
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/measuredWindSpeed.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_measuredWindSpeedMPHTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Button_12"
+        },
+        "position": {
+          "height": 105,
+          "width": 453,
+          "x": 823,
+          "y": 504.23
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#FFFF8A"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_123"
+        },
+        "position": {
+          "height": 32,
+          "width": 334,
+          "x": 891.3,
+          "y": 503.505
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Watchdog Heartbeat"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_124"
+        },
+        "position": {
+          "height": 20,
+          "width": 218.9999999999999,
+          "x": 889.32,
+          "y": 535.01
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Watchdog Heartbeat:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_125"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 1112.9,
+          "y": 535.77
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.config_ignitionInitiatedHeartbeat\u0027) \u003d 1 || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/heartbeat/watchdogHeartbeat\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_126"
+        },
+        "position": {
+          "height": 20,
+          "width": 218.9999999999999,
+          "x": 889.32,
+          "y": 558.244
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Watchdog Heartbeat Feedback:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_127"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 1112.9,
+          "y": 559.004
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/heartbeat/watchdogHeartbeatFeedback.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/heartbeat/watchdogHeartbeatFeedback\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Button_13"
+        },
+        "position": {
+          "height": 102,
+          "width": 1321,
+          "x": -45.39,
+          "y": 612.73
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#CCFFCC"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_128"
+        },
+        "position": {
+          "height": 32,
+          "width": 742,
+          "x": 234.8,
+          "y": 612.71875
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Connectivity / System Status / Business Services"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_129"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 244.01,
+          "x": 504.453,
+          "y": 196.932
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide",
+            "textDecoration": "underline"
+          },
+          "text": "Analog Dispatch"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_130"
+        },
+        "position": {
+          "height": 21.000000000000007,
+          "width": 243.99999999999994,
+          "x": 504.91,
+          "y": 102.93
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide",
+            "textDecoration": "underline"
+          },
+          "text": "Discrete Dispatch"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_131"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 959.84,
+          "y": 581.01
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_watchdogHeartbeatFeedbackTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_132"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 1111.78,
+          "y": 581.769
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/telemetryValues/customInt2.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_watchdogHeartbeatFeedbackTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_133"
+        },
+        "position": {
+          "height": 20,
+          "width": 145,
+          "x": 572.550375,
+          "y": 658.927
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Asset Availability"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_134"
+        },
+        "position": {
+          "height": 20,
+          "width": 146.89000000000001,
+          "x": 569.070375,
+          "y": 681.698
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_businessAvailableTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_135"
+        },
+        "position": {
+          "height": 17,
+          "width": 72.13999999999999,
+          "x": 722.130375,
+          "y": 659.692
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/businessServices/businessAvailable.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/businessServices/businessAvailable\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_136"
+        },
+        "position": {
+          "height": 17,
+          "width": 84,
+          "x": 721.010375,
+          "y": 682.456
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/businessServices/businessAvailable.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_businessAvailableTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_137"
+        },
+        "position": {
+          "height": 17,
+          "width": 57,
+          "x": 1190.12,
+          "y": 638.433
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/systemStatus/systemFaultStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_systemFaultStatusTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_138"
+        },
+        "position": {
+          "height": 17,
+          "width": 49,
+          "x": 992.5,
+          "y": 638.698
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/systemStatus/systemFaultStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/systemStatus/systemFaultStatus\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_139"
+        },
+        "position": {
+          "height": 20,
+          "width": 135.34000000000003,
+          "x": 850.592,
+          "y": 636.935
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Fault Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_140"
+        },
+        "position": {
+          "height": 20,
+          "width": 139,
+          "x": 1046.18,
+          "y": 637.67
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_systemFaultStatusTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_141"
+        },
+        "position": {
+          "height": 20,
+          "width": 139,
+          "x": 1046.18,
+          "y": 661.67
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_systemCloudFaultStatusTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_142"
+        },
+        "position": {
+          "height": 17,
+          "width": 57,
+          "x": 1190.12,
+          "y": 662.433
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/systemStatus/systemCloudFaultStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_systemCloudFaultStatusTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_143"
+        },
+        "position": {
+          "height": 17,
+          "width": 49,
+          "x": 992.5,
+          "y": 662.698
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/systemStatus/systemCloudFaultStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/systemStatus/systemCloudFaultStatus\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_144"
+        },
+        "position": {
+          "height": 20,
+          "width": 135.34000000000003,
+          "x": 850.042,
+          "y": 660.155
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Cloud Fault Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_145"
+        },
+        "position": {
+          "height": 20,
+          "width": 139,
+          "x": 1046.18,
+          "y": 685.67
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_systemSiteFaultStatusTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_146"
+        },
+        "position": {
+          "height": 17,
+          "width": 57,
+          "x": 1190.12,
+          "y": 686.433
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/systemStatus/systemSiteFaultStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_systemSiteFaultStatusTag\u0027)) "
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "######.##",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_147"
+        },
+        "position": {
+          "height": 17,
+          "width": 49,
+          "x": 992.5,
+          "y": 686.698
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/systemStatus/systemSiteFaultStatus.enabled\u0027) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/systemStatus/systemSiteFaultStatus\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldUnits"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_148"
+        },
+        "position": {
+          "height": 20,
+          "width": 135.34000000000003,
+          "x": 850.592,
+          "y": 684.935
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Site Fault Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_149"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 119,
+          "x": 217.013125,
+          "y": 661.693125
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Connectivity to:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_14"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 198.00000000000006,
+          "x": 335.803125,
+          "y": 661.603125
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/connectivityStatus/connectivityStatus\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_150"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 153,
+          "x": 7.013125000000002,
+          "y": 685.693125
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Connection in Alarm:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_15"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 164.995125,
+          "y": 685.425125
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/connectivityStatus/connectivityInAlarm\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FF4747"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_151",
+          "visible": "True"
+        },
+        "position": {
+          "height": 17,
+          "width": 188.00000000000006,
+          "x": 340.803125,
+          "y": 663.103125
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if (tag({session.custom.AssetPath} + \u0027/Parameters.opc_serverName\u0027) \u003d \u0027Ignition OPC UA Server\u0027, \r\ntag({session.custom.AssetPath} + \u0027/Parameters.opc_serverTopic\u0027),\r\ntag({session.custom.AssetPath} + \u0027/Parameters.opc_serverName\u0027))"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureLabelCenter"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_152"
+        },
+        "position": {
+          "height": 20.000000000000007,
+          "width": 158,
+          "x": 0.013125000000002274,
+          "y": 659.693125
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Connection Enabled:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_16"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 164.995125,
+          "y": 659.425125
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/connectivityStatus/connectionEnabled\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Button_14"
+        },
+        "position": {
+          "height": 131,
+          "width": 453,
+          "x": 823,
+          "y": 367.27
+        },
+        "props": {
+          "enabled": false,
+          "primary": false,
+          "style": {
+            "backgroundColor": "#CCCCFF"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_153"
+        },
+        "position": {
+          "height": 32,
+          "width": 334,
+          "x": 881.315625,
+          "y": 365.56725
+        },
+        "props": {
+          "style": {
+            "fontSize": "14pt",
+            "fontStyle": "normal",
+            "textAlign": "center"
+          },
+          "text": "Manual Dispatch"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "armDispatchToggleSwitch"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "62% 50%"
+          },
+          "width": 200,
+          "x": 965.781625,
+          "y": 410.09325
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{../manualDispatchMultiStateButton.props.indicatorValue} \u003d 0"
+              },
+              "type": "expr"
+            }
+          },
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath}  +\u0027/dispatch/_dispatchManualDispatchEnable\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "position": "left",
+            "style": {
+              "fontSize": 12,
+              "textAlign": "right"
+            },
+            "text": "Arm Manual Dispatch"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "manualDispatchMultiStateButton"
+        },
+        "position": {
+          "height": 34,
+          "width": 305,
+          "x": 904.52,
+          "y": 451.464375
+        },
+        "propConfig": {
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/_dispatchManualDispatch\u0027"
+              },
+              "type": "tag"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "../armDispatchToggleSwitch.props.selected"
+              },
+              "type": "property"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/_dispatchManualDispatch\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "orientation": "row",
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "#FF0000",
+                "classes": ""
+              },
+              "text": "Dispatch",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "#47FF47",
+                "classes": ""
+              },
+              "text": "Return to Normal",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "Label_155"
+        },
+        "position": {
+          "height": 20.00000000000003,
+          "width": 188.11,
+          "x": 822.89,
+          "y": 247.266875
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Active and Confirmed"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_17"
+        },
+        "position": {
+          "height": 20.00000000000003,
+          "width": 30,
+          "x": 1013.75,
+          "y": 247.47
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": " (tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 0) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/_dispatchConfirmedActive\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_156"
+        },
+        "position": {
+          "height": 20.00000000000003,
+          "width": 188.1099999999999,
+          "x": 823.22,
+          "y": 299.346875
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Active and NOT Confirmed"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_18"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 30,
+          "x": 1013.75,
+          "y": 299.55
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": " (tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 0) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/_dispatchNOTConfirmedAlarm\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FF0000"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Progress_19"
+        },
+        "position": {
+          "height": 20,
+          "width": 20,
+          "x": 562.703125,
+          "y": 532.298125
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "((tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1) \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_hasAggregateDispatch\u0027) \u003d 0)) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.max": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchValue\u0027"
+              },
+              "type": "tag"
+            }
+          },
+          "props.min": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/Parameters.config_discreteDispatchControllerDispatchRTNValue\u0027"
+              },
+              "type": "tag"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/startDispatchFeedback\u0027"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_157"
+        },
+        "position": {
+          "height": 20.00000000000003,
+          "width": 188.11,
+          "x": 822.89,
+          "y": 273.266875
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "InActive and Confirmed"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_20"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 30,
+          "x": 1013.75,
+          "y": 273.74
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "expression",
+                "tagPath": "{session.custom.AssetPath} + \u0027/dispatch/_dispatchConfirmedInActive\u0027 "
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_154"
+        },
+        "position": {
+          "height": 20,
+          "width": 183,
+          "x": 1050.01,
+          "y": 298.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchNOTConfirmedAlarmTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_158"
+        },
+        "position": {
+          "height": 20,
+          "width": 183,
+          "x": 1050.01,
+          "y": 274.28
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchConfirmedInactiveTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_159"
+        },
+        "position": {
+          "height": 19.99999999999997,
+          "width": 183,
+          "x": 1050.01,
+          "y": 250.28
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchConfirmedActiveTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_21"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 30,
+          "x": 1236.75,
+          "y": 301.348
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_dispatchNOTConfirmedAlarmTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FF0000"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Progress_22"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 30,
+          "x": 1236.75,
+          "y": 275.536
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_dispatchConfirmedInActiveTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Progress_23"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 30,
+          "x": 1236.75,
+          "y": 249.27
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_dispatchConfirmedActiveTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_160"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 167,
+          "x": 584.46,
+          "y": 69.27000000000001
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide"
+          },
+          "text": "Flex Preactivation Signal"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_6"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 45,
+          "x": 756.5,
+          "y": 69.00399999999999
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath} + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath} + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchPreactivationTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1,
+          "valueDisplay": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label_161"
+        },
+        "position": {
+          "height": 21.000000000000007,
+          "width": 243.99999999999994,
+          "x": 507.91,
+          "y": 43.93000000000001
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelSide",
+            "textDecoration": "underline"
+          },
+          "text": "Preactivation Signal"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_162"
+        },
+        "position": {
+          "height": 13,
+          "width": 139,
+          "x": 611.96,
+          "y": 85.94
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchPreactivationTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_163"
+        },
+        "position": {
+          "height": 13,
+          "width": 139,
+          "x": 609.46,
+          "y": 145.206
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchCommandTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_164"
+        },
+        "position": {
+          "height": 13,
+          "width": 139,
+          "x": 609.46,
+          "y": 238.206
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isAnalogDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_dispatchSetpointTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_165"
+        },
+        "position": {
+          "height": 20,
+          "width": 183,
+          "x": 599.234375,
+          "y": 580.249
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasControllerDispatchFeedback\u0027) \u003d 1)  \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_isAnalogDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_setpointDispatchFeedbackTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_166"
+        },
+        "position": {
+          "height": 20,
+          "width": 183,
+          "x": 599.234375,
+          "y": 556.249
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasControllerDispatchFeedback\u0027) \u003d 1)  \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1) \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_stopDispatchFeedbackTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_167"
+        },
+        "position": {
+          "height": 19.99999999999997,
+          "width": 183,
+          "x": 599.234375,
+          "y": 532.249
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({session.custom.AssetPath} + \u0027/Parameters.flex_startDispatchFeedbackTag\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UDTConfigureTextFieldLabelTiny"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Progress_24"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 20,
+          "x": 782.234,
+          "y": 530.239
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1)  || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_dispatchConfirmedActiveTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Progress_25"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 20,
+          "x": 782.234,
+          "y": 556.505
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasControllerDispatchFeedback\u0027) \u003d 1)  \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_isDiscreteDispatch\u0027) \u003d 1) \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_is3WireDiscreteDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_dispatchConfirmedInActiveTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#47FF47"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Progress_26"
+        },
+        "position": {
+          "height": 19.999999999999993,
+          "width": 20,
+          "x": 782.234,
+          "y": 582.317
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "(tag({session.custom.AssetPath} + \u0027/Parameters.config_hasControllerDispatchFeedback\u0027) \u003d 1)  \u0026\u0026 (tag({session.custom.AssetPath} + \u0027/Parameters.config_isAnalogDispatch\u0027) \u003d 1) || ({session.props.device.type}\u003d\u0027designer\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": " tag(tag({session.custom.AssetPath} + \u0027/Parameters.kafka_devicePathPrefix\u0027) + tag({session.custom.AssetPath}  + \u0027/Parameters.kafka_tenant\u0027) +\u0027/\u0027+ tag({session.custom.AssetPath}  + \u0027.name\u0027) + \u0027/\u0027 + tag({session.custom.AssetPath}  + \u0027/Parameters.flex_dispatchNOTConfirmedAlarmTag\u0027)) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#FF0000"
+          },
+          "max": 1
+        },
+        "type": "ia.display.progress"
+      }
+    ],
+    "custom": {
+      "tree": []
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.AssetID": {
+        "binding": {
+          "config": {
+            "path": "session.custom.AssetPath"
+          },
+          "type": "property"
+        }
+      },
+      "custom.AssetSite": {
+        "binding": {
+          "config": {
+            "path": "session.custom.AssetSite"
+          },
+          "type": "property"
+        }
+      },
+      "custom.AssetTenant": {
+        "binding": {
+          "config": {
+            "path": "session.custom.AssetTenant"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

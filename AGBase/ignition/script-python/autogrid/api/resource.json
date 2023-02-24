@@ -1,0 +1,16 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "code.py"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "autogrid",
+      "timestamp": "2022-08-29T14:54:07Z"
+    },
+    "lastModificationSignature": "00a8ce455489a09e1f9d2250e84595de83010637956b849b5cff03ff51bea3c7"
+  }
+}

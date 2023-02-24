@@ -1,0 +1,17 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "view.json",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "autogrid",
+      "timestamp": "2022-09-05T10:26:17Z"
+    },
+    "lastModificationSignature": "0364955d40ae7a395f469ce202a70def6328e0713042025276c7a27005fae58f"
+  }
+}

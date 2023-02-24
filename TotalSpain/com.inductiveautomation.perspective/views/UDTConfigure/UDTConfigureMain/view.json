@@ -1,0 +1,412 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1000,
+      "width": 1408
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\temptyList \u003d []\n\ttenantDropdown \u003d self\n\tsiteDropdown \u003d self.getSibling(\u0027siteDropdown\u0027)\n\tassetDropdown \u003d self.getSibling(\u0027assetDropdown\u0027)\n\tsiteDropdown.props.options \u003d emptyList\n\tsiteDropdown.props.value \u003d \u0027\u0027\n\tassetDropdown.props.options \u003d emptyList\n\tassetDropdown.props.value \u003d \u0027\u0027\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "dom": {
+            "onMouseEnter": {
+              "config": {
+                "script": "\t#\tlogger \u003d system.util.getLogger(\u0027AMS Dashboard\u0027)\n\temptyList \u003d []\n\ttenants \u003d system.tag.browse(path \u003d \u0027[default]\u0027,filter \u003d {\u0027name\u0027:\u0027*\u0027,\u0027tagType\u0027:\u0027FOLDER\u0027})\n#\tlogger.info(str(tenants.getResults()))\n\ttenantDropdown \u003d self\n\tsiteDropdown \u003d self.getChild(\"siteDropdown\")\n\tassetDropdown \u003d self.getChild(\"assetDropdown\")\n\ttenantDropdown.props.options \u003d emptyList\n\ttenantDropdown.props.options.append({\"value\": \u0027\u0027, \"label\":\u0027\u0027})\n\tfor tenant in tenants.getResults():\n\t\ttenantDropdown.props.options.append({\"value\": tenant[\u0027fullPath\u0027],\"label\": tenant[\u0027name\u0027]})\n#\tself.getSibling(\u0027TabContainer\u0027).props.currentTabIndex \u003d 1\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "tenantDropdown"
+        },
+        "position": {
+          "height": 36,
+          "width": 284,
+          "x": 119,
+          "y": 32.001875
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.custom.AssetTenant"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": [
+            {
+              "label": "",
+              "value": ""
+            },
+            {
+              "label": "_types_",
+              "value": "[default]_types_"
+            },
+            {
+              "label": "test",
+              "value": "[default]test"
+            },
+            {
+              "label": "Total Spain",
+              "value": "[default]Total Spain"
+            }
+          ]
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 189,
+          "x": 119,
+          "y": 0.4608750000000015
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "text": "Tenant:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 32,
+          "width": 189,
+          "x": 780.5,
+          "y": 2.7031750000000017
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "text": "Asset:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onMouseEnter": {
+              "config": {
+                "script": "\temptyList \u003d []\n#\ttenantDropdown \u003d self.getSibling(\u0027tenantDropdown\u0027)\n\tsiteDropdown \u003d self.getSibling(\u0027siteDropdown\u0027)\n\tassetDropdown \u003d self\n\tassets \u003d system.tag.browse(siteDropdown.props.value,{\u0027name\u0027:\u0027*\u0027,\u0027tagType\u0027:\u0027UdtInstance\u0027})\n\tassetDropdown.props.options \u003d emptyList\n\tassetDropdown.props.options.append({\"value\": \u0027\u0027, \"label\":\u0027\u0027})\n\tfor asset in assets.getResults():\n\t\tassetDropdown.props.options.append({\"value\": asset[\u0027fullPath\u0027],\"label\": asset[\u0027name\u0027]})\n\t\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "assetDropdown"
+        },
+        "position": {
+          "height": 36,
+          "width": 284,
+          "x": 781.008,
+          "y": 34.712875
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.custom.AssetPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "assetDuplicated",
+              "pageScope": true,
+              "script": "\temptyList \u003d []\n\tassetDropdown \u003d self\n\tassetDropdown.props.options \u003d emptyList\n\tassetDropdown.props.value \u003d \u0027\u0027\n\t\n\tsiteDropdown \u003d self.getSibling(\u0027siteDropdown\u0027)\n\tassets \u003d system.tag.browse(siteDropdown.props.value,{\"name\":\"*\",\"tagType\":\"UdtInstance\"})\n\tassetDropdown.props.options.append({\"value\": \u0027\u0027, \"label\":\u0027None\u0027})\n\tfor asset in assets:\n\t\tassetDropdown.props.options.append({\"value\": asset[\u0027fullPath\u0027],\"label\": asset[\u0027name\u0027]})\n\tassetDropdown.props.value \u003d payload[\u0027newAssetFullPath\u0027]\n\tassetDropdown.props.label \u003d payload[\u0027newAssetID\u0027]\n",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\temptyList \u003d []\n\tassetDropdown \u003d self.getSibling(\u0027assetDropdown\u0027)\n\tassetDropdown.props.options \u003d emptyList\n\tassetDropdown.props.value \u003d \u0027\u0027\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "dom": {
+            "onMouseEnter": {
+              "config": {
+                "script": "\temptyList \u003d []\n\ttenantDropdown \u003d self.getSibling(\u0027tenantDropdown\u0027)\n\tsiteDropdown \u003d self\n\tsites \u003d system.tag.browse(tenantDropdown.props.value,{\u0027name\u0027:\u0027*\u0027,\u0027tagType\u0027:\u0027FOLDER\u0027})\n\tsiteDropdown.props.options \u003d emptyList\n\tsiteDropdown.props.options.append({\"value\": \u0027\u0027, \"label\":\u0027\u0027})\n\tfor site in sites.getResults():\n\t\tsiteDropdown.props.options.append({\"value\": site[\u0027fullPath\u0027],\"label\": site[\u0027name\u0027]})\n\t\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "siteDropdown"
+        },
+        "position": {
+          "height": 36,
+          "width": 284,
+          "x": 455.758,
+          "y": 32.009874999999994
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.custom.AssetSite"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 32,
+          "width": 189,
+          "x": 455.25,
+          "y": 0.00007499999999538431
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "text": "Site:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "telemetryEmbeddedView"
+            },
+            "position": {
+              "tabIndex": 2
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.AssetPath} !\u003d \u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/Telemetry"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "dispatchEmbeddedView"
+            },
+            "position": {
+              "tabIndex": 3
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.AssetPath} !\u003d \u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/Dispatch"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "businessServicesEmbeddedView"
+            },
+            "position": {
+              "tabIndex": 4
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.AssetPath} !\u003d \u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/BusinessServices"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "heartbeatEmbeddedView"
+            },
+            "position": {
+              "tabIndex": 5
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.AssetPath} !\u003d \u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/Heartbeat"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "systemStatusEmbeddedView"
+            },
+            "position": {
+              "tabIndex": 6
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.AssetPath} !\u003d \u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/SystemStatus"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "General",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/General"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Dashboard"
+            },
+            "props": {
+              "path": "UDTConfigure/EmbeddedViews/Dashboard"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 825,
+          "width": 1278,
+          "x": 118.5,
+          "y": 81.171875
+        },
+        "props": {
+          "tabSize": {
+            "height": 40,
+            "width": 250
+          },
+          "tabs": [
+            "Dashboard",
+            "General",
+            "Telemetry",
+            "Dispatch",
+            "Business Services",
+            "Heartbeat",
+            "System Status"
+          ]
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "assetDuplicated",
+              "pageScope": true,
+              "script": "\tone \u003d 1\n\t\t\t\t\t\t\tPayload \u003d { \u0027newAssetID\u0027: newAssetID,\n\t\t\t\t\u0027newAssetFullPath\u0027: rootPath + \u0027/\u0027 + sitePath+ \u0027/\u0027 + newAssetID\n\t\t\t\t}\n\tsystem.perspective.sendMessage(messageType \u003d \u0027assetDuplicated\u0027, payload \u003d Payload, scope \u003d\u0027view\u0027)\n",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": -513,
+      "y": 58
+    },
+    "propConfig": {
+      "custom.AssetPath": {
+        "binding": {
+          "config": {
+            "path": "./assetDropdown.props.value"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

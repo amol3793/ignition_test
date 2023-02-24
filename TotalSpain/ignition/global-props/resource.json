@@ -1,0 +1,16 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "autogrid",
+      "timestamp": "2022-03-14T14:45:17Z"
+    },
+    "lastModificationSignature": "dd9ae0d996399eeb9b0649d5b1e52eeaeea5b35e22ed02282bcd87a2c71a7738"
+  }
+}

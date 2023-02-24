@@ -1,0 +1,77 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Spain Dispatch/portfolio-management"
+    },
+    "/Site": {
+      "title": "",
+      "viewPath": "Spain Dispatch/Site"
+    },
+    "/alarms": {
+      "title": "",
+      "viewPath": "Page/Alarms"
+    },
+    "/portfolio-management": {
+      "title": "",
+      "viewPath": "Spain Dispatch/portfolio-management"
+    },
+    "/ree-monitoring": {
+      "viewPath": "Spain Dispatch/ree-monitoring"
+    },
+    "/setup": {
+      "title": "Setup",
+      "viewPath": "Page/Setup"
+    },
+    "/sitestable": {
+      "viewPath": "Spain Dispatch/SitesTable"
+    },
+    "/udt-configure": {
+      "title": "",
+      "viewPath": "UDTConfigure/UDTConfigureMain"
+    },
+    "/udt-creation": {
+      "title": "",
+      "viewPath": "UDTConfigure/UDTConfigureMain"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 250,
+        "viewParams": {},
+        "viewPath": "Docks/Menu"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 55,
+        "viewParams": {
+          "breakpointLarge": 768,
+          "breakpointMedium": 500,
+          "path": "Header/Header"
+        },
+        "viewPath": "Framework/Breakpoint"
+      }
+    ]
+  }
+}

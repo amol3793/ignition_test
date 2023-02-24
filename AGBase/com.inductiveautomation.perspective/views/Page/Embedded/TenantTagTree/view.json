@@ -1,0 +1,97 @@
+{
+  "custom": {},
+  "params": {
+    "path_filter": "",
+    "tenant_base": ""
+  },
+  "propConfig": {
+    "params.path_filter": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tenant_base": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onItemClicked": {
+              "config": {
+                "script": "\tpath\u003dself.props.selectionData[0].value\n\t#{/root/Tree.props.selectionData[0].value}\n\tsystem.perspective.sendMessage(\"TagSelected\", payload \u003d {\"path\":path})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Tree"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tenant_base}"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn autogrid.tags.tag_tree(value, self.view.params.path_filter)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "color": "#5F707E",
+                "path": "material/folder"
+              },
+              "empty": {
+                "color": "#869DB1",
+                "path": "material/stop"
+              },
+              "expanded": {
+                "color": "#5F707E",
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "color": "#869DB1",
+                "path": "material/arrow_right"
+              },
+              "empty": {
+                "color": "#869DB1"
+              },
+              "expanded": {
+                "color": "#869DB1",
+                "path": "material/arrow_drop_down"
+              }
+            }
+          }
+        },
+        "type": "ia.display.tree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

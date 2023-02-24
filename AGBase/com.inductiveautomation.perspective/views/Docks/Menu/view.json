@@ -1,0 +1,178 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 260
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Features"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.items[1].visible": {
+            "binding": {
+              "config": {
+                "expression": "\"autogrid\"\u003d{session.props.auth.user.userName}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[3].visible": {
+            "binding": {
+              "config": {
+                "expression": "\"autogrid\"\u003d{session.props.auth.user.userName}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[4].visible": {
+            "binding": {
+              "config": {
+                "expression": "\"autogrid\"\u003d{session.props.auth.user.userName}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "backActionStyle": {
+            "classes": "Menu/All_Header"
+          },
+          "backActionText": "All Features",
+          "headerStyle": {
+            "classes": "Menu/Item_Selected"
+          },
+          "itemStyle": {
+            "classes": "Menu/Item"
+          },
+          "items": [
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/home"
+                },
+                "text": "Home"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "target": "/"
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/show_chart"
+                },
+                "text": "Charts"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "target": "/charts"
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/alarm"
+                },
+                "text": "Alarms"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "target": "/alarms"
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/casino"
+                },
+                "text": "Simulators"
+              },
+              "navIcon": {},
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/simulators"
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/settings"
+                },
+                "text": "Setup"
+              },
+              "navIcon": {},
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/setup"
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/device_hub"
+                },
+                "text": "SLDs"
+              },
+              "navIcon": {},
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/hmi",
+              "visible": false
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/power_settings_new"
+                },
+                "text": "Controls"
+              },
+              "navIcon": {},
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/controls",
+              "visible": true
+            }
+          ],
+          "style": {
+            "backgroundColor": "#DADDE0",
+            "classes": "Menu/Menu"
+          }
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Menu/Menu"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

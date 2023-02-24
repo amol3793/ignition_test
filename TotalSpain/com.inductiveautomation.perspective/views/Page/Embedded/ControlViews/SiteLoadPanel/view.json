@@ -1,0 +1,94 @@
+{
+  "custom": {},
+  "params": {
+    "path": ""
+  },
+  "propConfig": {
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LedDisplay_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 60,
+          "x": 8,
+          "y": 42.5
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "path": "{view.params.path}"
+                },
+                "tagPath": "{path}/SiteLoad/LOAD_POWER_ACTUAL"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "numberFormat": "#,##0.0"
+        },
+        "type": "ia.display.led-display"
+      },
+      {
+        "meta": {
+          "name": "Label_12"
+        },
+        "position": {
+          "height": 20,
+          "width": 50,
+          "x": 74,
+          "y": 44
+        },
+        "props": {
+          "text": "kW"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_14"
+        },
+        "position": {
+          "height": 34,
+          "width": 117,
+          "x": -2,
+          "y": 6
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "SITE LOAD"
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

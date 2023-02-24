@@ -1,0 +1,41 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 135,
+          "width": 300,
+          "x": 450,
+          "y": 331
+        },
+        "props": {
+          "style": {
+            "fontSize": 48,
+            "textAlign": "center"
+          },
+          "text": "No SLD Selected"
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Base/Black"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

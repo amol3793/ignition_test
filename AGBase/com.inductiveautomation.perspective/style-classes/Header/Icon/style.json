@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "cursor": "pointer",
+      "stroke": "#000000",
+      "fill": "#000000"
+    }
+  }
+}

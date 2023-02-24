@@ -1,0 +1,81 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {
+    "params.feature": {
+      "paramDirection": "input"
+    },
+    "params.key": {
+      "paramDirection": "input"
+    },
+    "params.tier1": {
+      "paramDirection": "input"
+    },
+    "params.tier2": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "icon": "home",
+            "text": "Home"
+          },
+          "path": "Page/Embedded/Title"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "hasRole(\"autogrid\", {session.props.auth.user.userName}, \"default\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.tenant_base": {
+            "binding": {
+              "config": {
+                "expression": "if(hasRole(\"autogrid\", {session.props.auth.user.userName}, \"default\"), \"\", \"[default]\"+{session.custom.tenant_uid})"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Embedded/TenantTagTreeAndDetail"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/Page"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
