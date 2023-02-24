@@ -2,6 +2,7 @@ def watchdogUpdate(watchdogTagPath):
 	newWatchdogValue = 1
 	curWatchdogValue = system.tag.read(watchdogTagPath)
 	print str(curWatchdogValue.quality)
+	print("testing git")
 	if str(curWatchdogValue.quality) == 'Bad_Disabled':
 		OPCServer = system.tag.getAttribute(watchdogTagPath, 'OpcServer')
 		if not(OPCServer == 'Ignition OPC UA Server'):
